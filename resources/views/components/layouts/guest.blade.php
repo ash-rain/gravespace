@@ -14,11 +14,12 @@
     </head>
     <body class="font-sans antialiased bg-primary text-text">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-            <div>
+            <div class="w-full sm:max-w-md flex items-center justify-between px-6 sm:px-0">
                 <a href="{{ route('home') }}" class="flex items-center gap-2">
                     <span class="text-accent text-3xl">&#x1F56F;</span>
                     <span class="font-serif text-2xl font-bold text-text">GraveSpace</span>
                 </a>
+                <x-language-switcher />
             </div>
 
             <div class="w-full sm:max-w-md mt-6 px-6 py-8 bg-surface border border-border shadow-xl overflow-hidden sm:rounded-xl">

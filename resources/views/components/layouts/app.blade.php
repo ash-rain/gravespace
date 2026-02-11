@@ -40,6 +40,7 @@
 
                         <div class="hidden sm:flex sm:items-center sm:gap-4">
                             <a href="{{ route('explore') }}" class="text-sm text-text-muted hover:text-text">{{ __('Explore') }}</a>
+                            <x-language-switcher />
                             <div class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" class="flex items-center gap-2 text-sm text-text-muted hover:text-text">
                                     <span>{{ Auth::user()->name }}</span>
@@ -78,6 +79,9 @@
                             @csrf
                             <button type="submit" class="block text-sm text-text-muted hover:text-text">{{ __('Log Out') }}</button>
                         </form>
+                        <div class="pt-2 border-t border-border">
+                            <x-language-switcher />
+                        </div>
                     </div>
                 </div>
             </nav>

@@ -35,6 +35,7 @@
                             <a href="{{ route('explore') }}" class="text-sm text-text-muted hover:text-text transition-colors">{{ __('Explore') }}</a>
                             <a href="{{ route('pricing') }}" class="text-sm text-text-muted hover:text-text transition-colors">{{ __('Pricing') }}</a>
                             <a href="{{ route('about') }}" class="text-sm text-text-muted hover:text-text transition-colors">{{ __('About') }}</a>
+                            <x-language-switcher />
                             @auth
                                 <a href="{{ route('dashboard.index') }}" class="text-sm bg-accent hover:bg-accent-hover text-primary font-semibold px-4 py-2 rounded-lg transition-colors">{{ __('Dashboard') }}</a>
                             @else
@@ -65,6 +66,9 @@
                             <a href="{{ route('login') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Sign In') }}</a>
                             <a href="{{ route('register') }}" class="block text-sm text-accent">{{ __('Get Started') }}</a>
                         @endauth
+                        <div class="pt-2 border-t border-border">
+                            <x-language-switcher />
+                        </div>
                     </div>
                 </div>
             </nav>

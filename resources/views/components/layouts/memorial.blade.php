@@ -35,6 +35,7 @@
                             </a>
                         </div>
                         <div class="flex items-center gap-4">
+                            <x-language-switcher />
                             @auth
                                 <a href="{{ route('dashboard.index') }}" class="text-sm text-text-muted hover:text-text">{{ __('Dashboard') }}</a>
                             @else
