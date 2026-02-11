@@ -55,6 +55,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Auth routes (must be before the slug catch-all)
+require __DIR__.'/auth.php';
+
 // Public memorial routes (must be last — slug catch-all)
 Route::get('/{memorial:slug}', [MemorialController::class, 'show'])->name('memorial.show');
 Route::get('/{slug}/gallery', [MemorialController::class, 'gallery'])->name('memorial.gallery');
@@ -63,5 +66,3 @@ Route::get('/{slug}/password', [MemorialController::class, 'password'])->name('m
 Route::post('/{slug}/password', [MemorialController::class, 'verifyPassword'])->name('memorial.password.verify');
 Route::post('/{slug}/tributes', [TributeController::class, 'store'])->name('memorial.tributes.store');
 Route::post('/{slug}/gifts', [VirtualGiftController::class, 'store'])->name('memorial.gifts.store');
-
-require __DIR__.'/auth.php';
