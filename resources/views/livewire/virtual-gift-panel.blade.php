@@ -5,8 +5,15 @@
         </div>
     @endif
 
+    {{-- Skeleton loading state --}}
+    <div wire:loading class="flex flex-wrap gap-3">
+        @for($i = 0; $i < 5; $i++)
+            <div class="h-10 w-24 bg-elevated animate-pulse rounded-xl"></div>
+        @endfor
+    </div>
+
     {{-- Gift counts display --}}
-    <div class="flex flex-wrap gap-3 mb-6">
+    <div wire:loading.remove class="flex flex-wrap gap-3 mb-6">
         @foreach($giftCounts as $type => $info)
             @if($info['count'] > 0)
                 <div class="flex items-center gap-1.5 bg-surface border border-border rounded-full px-3 py-1.5 text-sm">

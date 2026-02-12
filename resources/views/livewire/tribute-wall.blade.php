@@ -6,8 +6,28 @@
         </div>
     @endif
 
+    {{-- Skeleton loading state --}}
+    <div wire:loading class="space-y-6">
+        @for($i = 0; $i < 3; $i++)
+            <div class="bg-surface border border-border rounded-xl p-6">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 bg-elevated animate-pulse rounded-full"></div>
+                    <div class="space-y-1">
+                        <div class="h-4 bg-elevated animate-pulse rounded w-24"></div>
+                        <div class="h-3 bg-elevated animate-pulse rounded w-16"></div>
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <div class="h-3 bg-elevated animate-pulse rounded w-full"></div>
+                    <div class="h-3 bg-elevated animate-pulse rounded w-5/6"></div>
+                    <div class="h-3 bg-elevated animate-pulse rounded w-2/3"></div>
+                </div>
+            </div>
+        @endfor
+    </div>
+
     {{-- Tributes list --}}
-    <div class="space-y-4 mb-8">
+    <div wire:loading.remove class="space-y-4 mb-8">
         @forelse($tributes as $tribute)
             <div class="bg-surface border border-border rounded-xl p-6">
                 <div class="flex items-start justify-between">
@@ -28,10 +48,12 @@
         @endforelse
     </div>
 
-    {{ $tributes->links() }}
+    <div wire:loading.remove>
+        {{ $tributes->links() }}
+    </div>
 
     {{-- Submit tribute form --}}
-    <div class="mt-8">
+    <div wire:loading.remove class="mt-8">
         @if(!$showForm)
             <button wire:click="$set('showForm', true)" class="w-full bg-surface border border-border hover:border-accent/50 text-text-muted hover:text-text rounded-xl px-6 py-4 text-sm transition-colors">
                 {{ __('Leave a tribute...') }}

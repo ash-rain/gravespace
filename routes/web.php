@@ -11,10 +11,21 @@ use App\Http\Controllers\TributeController;
 use App\Http\Controllers\VirtualGiftController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Webhook\StripeWebhookController;
+use App\Http\Middleware\HoneypotProtection;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 // Language switcher
 Route::get('/language/{locale}', [LanguageController::class, 'switch'])->name('language.switch');
+
+// Sitemap
+Route::get('/sitemap.xml', function () {
+    $path = public_path('sitemap.xml');
+    if (!file_exists($path)) {
+        Artisan::call('sitemap:generate');
+    }
+    return response()->file($path, ['Content-Type' => 'application/xml']);
+})->name('sitemap');
 
 // Public pages
 Route::get('/', fn () => view('pages.home'))->name('home');
@@ -35,6 +46,8 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
     // Memorials
     Route::resource('memorials', MemorialController::class)->except(['show']);
     Route::get('memorials/{memorial}/qr', [QrCodeController::class, 'show'])->name('memorials.qr');
+    Route::get('memorials/{memorial}/qr/download', [QrCodeController::class, 'download'])->name('memorials.qr.download');
+    Route::get('memorials/{memorial}/analytics', [DashboardController::class, 'analytics'])->name('memorials.analytics');
     Route::post('memorials/{memorial}/photos', [PhotoController::class, 'store'])->name('memorials.photos.store');
     Route::patch('photos/{photo}', [PhotoController::class, 'update'])->name('photos.update');
     Route::delete('photos/{photo}', [PhotoController::class, 'destroy'])->name('photos.destroy');
@@ -59,10 +72,10 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
 require __DIR__.'/auth.php';
 
 // Public memorial routes (must be last — slug catch-all)
-Route::get('/{memorial:slug}', [MemorialController::class, 'show'])->name('memorial.show');
+Route::get('/{memorial:slug}', [MemorialController::class, 'show'])->name('memorial.show')->middleware(\App\Http\Middleware\TrackMemorialVisit::class);
 Route::get('/{slug}/gallery', [MemorialController::class, 'gallery'])->name('memorial.gallery');
 Route::get('/{slug}/timeline', [MemorialController::class, 'timeline'])->name('memorial.timeline');
 Route::get('/{slug}/password', [MemorialController::class, 'password'])->name('memorial.password');
-Route::post('/{slug}/password', [MemorialController::class, 'verifyPassword'])->name('memorial.password.verify');
-Route::post('/{slug}/tributes', [TributeController::class, 'store'])->name('memorial.tributes.store');
-Route::post('/{slug}/gifts', [VirtualGiftController::class, 'store'])->name('memorial.gifts.store');
+Route::post('/{slug}/password', [MemorialController::class, 'verifyPassword'])->name('memorial.password.verify')->middleware('throttle:password-verify');
+Route::post('/{slug}/tributes', [TributeController::class, 'store'])->name('memorial.tributes.store')->middleware(['throttle:tributes', HoneypotProtection::class]);
+Route::post('/{slug}/gifts', [VirtualGiftController::class, 'store'])->name('memorial.gifts.store')->middleware(['throttle:gifts', HoneypotProtection::class]);

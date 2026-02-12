@@ -5,7 +5,41 @@
         <x-slot:ogImage>{{ Storage::url($memorial->cover_photo) }}</x-slot:ogImage>
     @endif
 
+    @push('head')
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ $memorial->fullName() }}",
+        "givenName": "{{ $memorial->first_name }}",
+        "familyName": "{{ $memorial->last_name }}",
+        @if($memorial->date_of_birth)
+        "birthDate": "{{ $memorial->date_of_birth->format('Y-m-d') }}",
+        @endif
+        @if($memorial->date_of_death)
+        "deathDate": "{{ $memorial->date_of_death->format('Y-m-d') }}",
+        @endif
+        @if($memorial->place_of_birth)
+        "birthPlace": "{{ $memorial->place_of_birth }}",
+        @endif
+        @if($memorial->place_of_death)
+        "deathPlace": "{{ $memorial->place_of_death }}",
+        @endif
+        @if($memorial->profile_photo)
+        "image": "{{ Storage::url($memorial->profile_photo) }}",
+        @endif
+        "url": "{{ route('memorial.show', $memorial) }}"
+    }
+    </script>
+    @endpush
+
     <article>
+        {{-- Print-only header --}}
+        <div class="print-only text-center mb-8">
+            <p class="text-sm text-gray-500">Memorial from GraveSpace.com</p>
+            <hr class="my-4 border-gray-300">
+        </div>
+
         {{-- Cover Photo Section --}}
         <section class="relative">
             <div class="relative h-64 sm:h-80 md:h-96 lg:h-[28rem] bg-elevated overflow-hidden">
@@ -96,15 +130,24 @@
         {{-- Sub-Navigation --}}
         <section class="border-b border-border bg-surface/30">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <nav class="flex items-center gap-6 overflow-x-auto py-3 text-sm">
-                    <a href="{{ route('memorial.show', $memorial) }}" class="text-accent font-medium whitespace-nowrap">{{ __('Memorial') }}</a>
-                    @if($memorial->photos->count() > 0)
-                        <a href="{{ route('memorial.gallery', $memorial->slug) }}" class="text-text-muted hover:text-text whitespace-nowrap transition-colors">{{ __('Gallery') }} ({{ $memorial->photos->count() }})</a>
-                    @endif
-                    @if($memorial->timelineEvents->count() > 0)
-                        <a href="{{ route('memorial.timeline', $memorial->slug) }}" class="text-text-muted hover:text-text whitespace-nowrap transition-colors">{{ __('Timeline') }}</a>
-                    @endif
-                </nav>
+                <div class="flex items-center justify-between py-3">
+                    <nav class="flex items-center gap-6 overflow-x-auto text-sm">
+                        <a href="{{ route('memorial.show', $memorial) }}" class="text-accent font-medium whitespace-nowrap">{{ __('Memorial') }}</a>
+                        @if($memorial->photos->count() > 0)
+                            <a href="{{ route('memorial.gallery', $memorial->slug) }}" class="text-text-muted hover:text-text whitespace-nowrap transition-colors">{{ __('Gallery') }} ({{ $memorial->photos->count() }})</a>
+                        @endif
+                        @if($memorial->timelineEvents->count() > 0)
+                            <a href="{{ route('memorial.timeline', $memorial->slug) }}" class="text-text-muted hover:text-text whitespace-nowrap transition-colors">{{ __('Timeline') }}</a>
+                        @endif
+                        <button onclick="window.print()" class="ml-auto text-text-muted hover:text-text whitespace-nowrap transition-colors no-print flex items-center gap-1.5" title="{{ __('Print Memorial') }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.72 13.829c-.24.03-.48.062-.72.096m.72-.096a42.415 42.415 0 0110.56 0m-10.56 0L6.34 18m10.94-4.171c.24.03.48.062.72.096m-.72-.096L17.66 18m0 0l.229 2.523a1.125 1.125 0 01-1.12 1.227H7.231c-.662 0-1.18-.568-1.12-1.227L6.34 18m11.318 0h1.091A2.25 2.25 0 0021 15.75V9.456c0-1.081-.768-2.015-1.837-2.175a48.055 48.055 0 00-1.913-.247M6.34 18H5.25A2.25 2.25 0 013 15.75V9.456c0-1.081.768-2.015 1.837-2.175a48.041 48.041 0 011.913-.247m10.5 0a48.536 48.536 0 00-10.5 0m10.5 0V3.375c0-.621-.504-1.125-1.125-1.125h-8.25c-.621 0-1.125.504-1.125 1.125v3.659M18 10.5h.008v.008H18V10.5zm-3 0h.008v.008H15V10.5z"/>
+                            </svg>
+                            <span class="text-sm">{{ __('Print') }}</span>
+                        </button>
+                    </nav>
+                    <x-social-share :url="route('memorial.show', $memorial)" :title="$memorial->fullName() . ' — GraveSpace'" />
+                </div>
             </div>
         </section>
 
@@ -159,6 +202,7 @@
                 <div class="bg-surface border border-border rounded-2xl p-6 sm:p-8">
                     <form method="POST" action="{{ route('memorial.gifts.store', $memorial->slug) }}">
                         @csrf
+                        <x-honeypot />
                         <input type="hidden" name="type" :value="selectedGift">
 
                         {{-- Gift Type Selector --}}
@@ -219,6 +263,7 @@
                     <h3 class="font-serif text-lg font-semibold text-text mb-4">{{ __('Share a Memory') }}</h3>
                     <form method="POST" action="{{ route('memorial.tributes.store', $memorial->slug) }}">
                         @csrf
+                        <x-honeypot />
 
                         @guest
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">

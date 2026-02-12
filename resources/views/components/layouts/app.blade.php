@@ -4,12 +4,18 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
         <title>{{ $title ?? config('app.name', 'GraveSpace') }} — GraveSpace</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|playfair-display:400,500,600,700,800&display=swap" rel="stylesheet" />
 
+        <script>
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light');
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
@@ -41,6 +47,7 @@
                         <div class="hidden sm:flex sm:items-center sm:gap-4">
                             <a href="{{ route('explore') }}" class="text-sm text-text-muted hover:text-text">{{ __('Explore') }}</a>
                             <x-language-switcher />
+                            <x-theme-toggle />
                             <div class="relative" x-data="{ open: false }">
                                 <button @click="open = !open" class="flex items-center gap-2 text-sm text-text-muted hover:text-text">
                                     <span>{{ Auth::user()->name }}</span>
@@ -79,8 +86,9 @@
                             @csrf
                             <button type="submit" class="block text-sm text-text-muted hover:text-text">{{ __('Log Out') }}</button>
                         </form>
-                        <div class="pt-2 border-t border-border">
+                        <div class="pt-2 border-t border-border flex items-center gap-2">
                             <x-language-switcher />
+                            <x-theme-toggle />
                         </div>
                     </div>
                 </div>
@@ -116,5 +124,6 @@
         </div>
 
         @livewireScripts
+        <x-cookie-consent />
     </body>
 </html>

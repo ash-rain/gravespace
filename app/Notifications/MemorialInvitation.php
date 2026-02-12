@@ -28,10 +28,10 @@ class MemorialInvitation extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('You have been invited to a memorial on GraveSpace')
+            ->subject('You\'re invited to view a memorial on GraveSpace')
             ->greeting('Memorial Invitation')
-            ->line($this->inviter->name . ' has invited you to help manage the memorial for ' . $this->memorial->fullName() . '.')
-            ->action('View Memorial', route('memorial.show', $this->memorial->slug))
-            ->line('Thank you for being part of keeping their memory alive.');
+            ->line('You have been invited to view the memorial for ' . $this->memorial->fullName() . '.')
+            ->action('View Memorial', url('/' . $this->memorial->slug))
+            ->line('This is a private memorial shared with you by the family.');
     }
 }

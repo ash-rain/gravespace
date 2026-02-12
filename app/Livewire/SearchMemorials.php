@@ -14,10 +14,17 @@ class SearchMemorials extends Component
     use WithPagination;
 
     public string $search = '';
+    public int $perPage = 12;
 
     public function updatingSearch(): void
     {
         $this->resetPage();
+        $this->perPage = 12;
+    }
+
+    public function loadMore(): void
+    {
+        $this->perPage += 12;
     }
 
     public function render(): View
@@ -27,15 +34,14 @@ class SearchMemorials extends Component
             ->withCount(['virtualGifts', 'approvedTributes']);
 
         if ($this->search) {
-            $query->where(function ($q) {
-                $q->where('first_name', 'like', "%{$this->search}%")
-                  ->orWhere('last_name', 'like', "%{$this->search}%")
-                  ->orWhere('obituary', 'like', "%{$this->search}%");
-            });
+            $searchIds = Memorial::search($this->search)->keys();
+            $query->whereIn('id', $searchIds);
         }
 
+        $memorials = $query->latest()->paginate($this->perPage);
+
         return view('livewire.search-memorials', [
-            'memorials' => $query->latest()->paginate(12),
+            'memorials' => $memorials,
         ]);
     }
 }

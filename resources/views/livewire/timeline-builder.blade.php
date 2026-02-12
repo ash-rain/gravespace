@@ -1,6 +1,20 @@
 <div>
+    {{-- Skeleton loading state --}}
+    <div wire:loading class="space-y-8">
+        @for($i = 0; $i < 3; $i++)
+            <div class="flex gap-4">
+                <div class="w-3 h-3 bg-elevated animate-pulse rounded-full mt-1.5 shrink-0"></div>
+                <div class="flex-1 space-y-2">
+                    <div class="h-4 bg-elevated animate-pulse rounded w-32"></div>
+                    <div class="h-5 bg-elevated animate-pulse rounded w-48"></div>
+                    <div class="h-3 bg-elevated animate-pulse rounded w-full"></div>
+                </div>
+            </div>
+        @endfor
+    </div>
+
     {{-- Timeline display --}}
-    <div class="relative">
+    <div wire:loading.remove class="relative">
         {{-- Vertical line --}}
         @if($events->count() > 0)
             <div class="absolute left-6 top-0 bottom-0 w-px bg-border"></div>

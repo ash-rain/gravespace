@@ -10,10 +10,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Laravel\Scout\Searchable;
 
 class Memorial extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'user_id',
@@ -105,6 +106,11 @@ class Memorial extends Model
         return $this->hasMany(Reminder::class);
     }
 
+    public function visits(): HasMany
+    {
+        return $this->hasMany(MemorialVisit::class);
+    }
+
     public function qrCode(): HasOne
     {
         return $this->hasOne(QrCode::class);
@@ -144,5 +150,23 @@ class Memorial extends Model
     public function scopePubliclyVisible($query)
     {
         return $query->published()->where('privacy', 'public');
+    }
+
+    public function toSearchableArray(): array
+    {
+        return [
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'maiden_name' => $this->maiden_name,
+            'obituary' => $this->obituary,
+            'cemetery_name' => $this->cemetery_name,
+            'place_of_birth' => $this->place_of_birth,
+            'place_of_death' => $this->place_of_death,
+        ];
+    }
+
+    public function shouldBeSearchable(): bool
+    {
+        return $this->is_published && $this->privacy === 'public';
     }
 }

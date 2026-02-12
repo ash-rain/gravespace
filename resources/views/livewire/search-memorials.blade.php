@@ -7,8 +7,22 @@
         </div>
     </div>
 
+    {{-- Skeleton loading state --}}
+    <div wire:loading class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        @for($i = 0; $i < 6; $i++)
+            <div class="bg-surface border border-border rounded-2xl overflow-hidden">
+                <div class="h-48 bg-elevated animate-pulse"></div>
+                <div class="p-4 space-y-3">
+                    <div class="h-5 bg-elevated animate-pulse rounded w-3/4"></div>
+                    <div class="h-3 bg-elevated animate-pulse rounded w-1/2"></div>
+                    <div class="h-3 bg-elevated animate-pulse rounded w-full"></div>
+                </div>
+            </div>
+        @endfor
+    </div>
+
     {{-- Memorial cards grid --}}
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div wire:loading.remove class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @forelse($memorials as $memorial)
             <a href="{{ route('memorial.show', $memorial->slug) }}" class="group block bg-surface border border-border rounded-xl overflow-hidden hover:border-accent/30 transition-colors">
                 {{-- Cover image --}}
@@ -51,7 +65,20 @@
         @endforelse
     </div>
 
-    <div class="mt-8">
-        {{ $memorials->links() }}
-    </div>
+    {{-- Infinite scroll trigger --}}
+    @if($memorials->hasMorePages())
+        <div
+            x-data
+            x-intersect.threshold.50="$wire.loadMore()"
+            class="flex justify-center py-8"
+        >
+            <div class="flex items-center gap-2 text-text-muted">
+                <svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span class="text-sm">{{ __('Loading more memorials...') }}</span>
+            </div>
+        </div>
+    @endif
 </div>

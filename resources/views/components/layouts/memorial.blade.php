@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
         <title>{{ $title ?? 'Memorial' }} — GraveSpace</title>
         <meta name="description" content="{{ $description ?? '' }}">
@@ -19,6 +20,13 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|playfair-display:400,500,600,700,800&display=swap" rel="stylesheet" />
 
+        @stack('head')
+
+        <script>
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light');
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
@@ -36,6 +44,7 @@
                         </div>
                         <div class="flex items-center gap-4">
                             <x-language-switcher />
+                            <x-theme-toggle />
                             @auth
                                 <a href="{{ route('dashboard.index') }}" class="text-sm text-text-muted hover:text-text">{{ __('Dashboard') }}</a>
                             @else
@@ -60,5 +69,6 @@
         </div>
 
         @livewireScripts
+        <x-cookie-consent />
     </body>
 </html>

@@ -16,11 +16,8 @@ class ExploreController extends Controller
 
         if ($request->filled('search')) {
             $search = $request->input('search');
-            $query->where(function ($q) use ($search) {
-                $q->where('first_name', 'like', "%{$search}%")
-                  ->orWhere('last_name', 'like', "%{$search}%")
-                  ->orWhere('obituary', 'like', "%{$search}%");
-            });
+            $searchIds = Memorial::search($search)->keys();
+            $query->whereIn('id', $searchIds);
         }
 
         $memorials = $query->latest()->paginate(12);

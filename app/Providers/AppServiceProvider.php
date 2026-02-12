@@ -10,8 +10,10 @@ use App\Models\Tribute;
 use App\Policies\MemorialPolicy;
 use App\Policies\PhotoPolicy;
 use App\Policies\TributePolicy;
+use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +31,18 @@ class AppServiceProvider extends ServiceProvider
 
         Blade::if('subscribed', function () {
             return auth()->check() && auth()->user()->isPremium();
+        });
+
+        RateLimiter::for('tributes', function ($request) {
+            return Limit::perMinute(5)->by($request->ip());
+        });
+
+        RateLimiter::for('gifts', function ($request) {
+            return Limit::perMinute(10)->by($request->ip());
+        });
+
+        RateLimiter::for('password-verify', function ($request) {
+            return Limit::perMinute(5)->by($request->ip());
         });
     }
 }

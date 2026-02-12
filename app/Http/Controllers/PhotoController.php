@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Jobs\OptimizePhoto;
 use App\Models\Memorial;
 use App\Models\Photo;
 use Illuminate\Http\RedirectResponse;
@@ -31,12 +32,14 @@ class PhotoController extends Controller
 
             $path = $file->store('memorials/' . $memorial->id . '/photos', 'public');
 
-            Photo::create([
+            $photo = Photo::create([
                 'memorial_id' => $memorial->id,
                 'uploaded_by' => $user->id,
                 'file_path' => $path,
                 'sort_order' => $currentCount,
             ]);
+
+            OptimizePhoto::dispatch($photo);
 
             $currentCount++;
         }

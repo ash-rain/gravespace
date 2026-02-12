@@ -1,6 +1,13 @@
 <div>
+    {{-- Skeleton loading state --}}
+    <div wire:loading class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+        @for($i = 0; $i < 6; $i++)
+            <div class="aspect-square bg-elevated animate-pulse rounded-xl"></div>
+        @endfor
+    </div>
+
     {{-- Photo grid --}}
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+    <div wire:loading.remove class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
         @forelse($photos as $photo)
             <div class="group relative aspect-square rounded-lg overflow-hidden cursor-pointer" wire:click="openLightbox({{ $photo->id }})">
                 <img src="{{ Storage::url($photo->file_path) }}" alt="{{ $photo->caption ?? '' }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">

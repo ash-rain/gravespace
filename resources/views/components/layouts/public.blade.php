@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
         <title>{{ $title ?? 'GraveSpace — Honor Those Who Matter' }}</title>
         <meta name="description" content="{{ $description ?? 'Create beautiful, lasting memorial pages for your loved ones. A premium virtual memorial platform.' }}">
@@ -16,6 +17,11 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700|playfair-display:400,500,600,700,800&display=swap" rel="stylesheet" />
 
+        <script>
+            if (localStorage.getItem('theme') === 'light') {
+                document.documentElement.classList.add('light');
+            }
+        </script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-primary text-text">
@@ -36,6 +42,7 @@
                             <a href="{{ route('pricing') }}" class="text-sm text-text-muted hover:text-text transition-colors">{{ __('Pricing') }}</a>
                             <a href="{{ route('about') }}" class="text-sm text-text-muted hover:text-text transition-colors">{{ __('About') }}</a>
                             <x-language-switcher />
+                            <x-theme-toggle />
                             @auth
                                 <a href="{{ route('dashboard.index') }}" class="text-sm bg-accent hover:bg-accent-hover text-primary font-semibold px-4 py-2 rounded-lg transition-colors">{{ __('Dashboard') }}</a>
                             @else
@@ -66,8 +73,9 @@
                             <a href="{{ route('login') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Sign In') }}</a>
                             <a href="{{ route('register') }}" class="block text-sm text-accent">{{ __('Get Started') }}</a>
                         @endauth
-                        <div class="pt-2 border-t border-border">
+                        <div class="pt-2 border-t border-border flex items-center gap-2">
                             <x-language-switcher />
+                            <x-theme-toggle />
                         </div>
                     </div>
                 </div>
@@ -114,5 +122,6 @@
                 </div>
             </footer>
         </div>
+        <x-cookie-consent />
     </body>
 </html>
