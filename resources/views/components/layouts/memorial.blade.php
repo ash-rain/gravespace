@@ -30,7 +30,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-primary text-text">
+    <body class="font-sans antialiased bg-primary text-text {{ $themeClass ?? '' }}">
         <div class="min-h-screen flex flex-col">
             {{-- Minimal nav for memorial pages --}}
             <nav class="bg-surface/60 backdrop-blur-md border-b border-border/50 sticky top-0 z-50">

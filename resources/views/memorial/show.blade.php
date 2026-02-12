@@ -1,4 +1,4 @@
-<x-layouts.memorial>
+<x-layouts.memorial :themeClass="$memorial->themeClasses()">
     <x-slot:title>{{ $memorial->fullName() }}</x-slot:title>
     <x-slot:description>{{ Str::limit(strip_tags($memorial->obituary), 160) }}</x-slot:description>
     @if ($memorial->cover_photo)
@@ -203,6 +203,35 @@
         {{-- Family Connections --}}
         @if ($memorial->familyLinks && $memorial->familyLinks->count() > 0)
             <x-memorial.family-links :familyLinks="$memorial->familyLinks" />
+        @endif
+
+        {{-- Voice Memories --}}
+        @if ($memorial->voiceMemories && $memorial->voiceMemories->count() > 0)
+            <section class="py-10 sm:py-14">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="font-serif text-2xl font-bold text-text mb-6">{{ __('Voice Memories') }}</h2>
+                    <div class="space-y-4">
+                        @foreach ($memorial->voiceMemories as $voice)
+                            <div class="bg-surface border border-border rounded-xl p-5 flex flex-col sm:flex-row sm:items-center gap-4">
+                                <div class="flex items-center gap-3 flex-1 min-w-0">
+                                    <div class="w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center shrink-0">
+                                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                        </svg>
+                                    </div>
+                                    <div class="min-w-0">
+                                        <p class="text-text font-medium text-sm truncate">{{ $voice->title }}</p>
+                                        <p class="text-text-muted text-xs">{{ __('Shared by') }} {{ $voice->user->name }}</p>
+                                    </div>
+                                </div>
+                                <audio controls preload="none" class="h-8 shrink-0">
+                                    <source src="{{ Storage::url($voice->file_path) }}" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
         @endif
 
         {{-- Leave a Virtual Gift --}}

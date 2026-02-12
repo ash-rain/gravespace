@@ -156,3 +156,44 @@ select:focus {
 .print-only {
     display: none;
 }
+
+/* Memorial Theme Variants */
+.memorial-theme-classic {
+    /* Default dark theme — uses base theme variables */
+}
+
+.memorial-theme-garden {
+    --color-primary: #0d1a0f;
+    --color-surface: #121f14;
+    --color-elevated: #1a2e1d;
+    --color-border: #2a4e2e;
+    --color-accent: #7cb342;
+    --color-accent-hover: #8bc34a;
+}
+
+.memorial-theme-celestial {
+    --color-primary: #0a0c1a;
+    --color-surface: #10132a;
+    --color-elevated: #1a1e3e;
+    --color-border: #2a2e5e;
+    --color-accent: #7c8ecf;
+    --color-accent-hover: #9aa8e0;
+}
+
+.memorial-theme-ocean {
+    --color-primary: #0a1214;
+    --color-surface: #0f1a1e;
+    --color-elevated: #162530;
+    --color-border: #1e3a4a;
+    --color-accent: #4db6ac;
+    --color-accent-hover: #64c8be;
+}
+
+.memorial-theme-sunset {
+    --color-primary: #140a0a;
+    --color-surface: #1e1210;
+    --color-elevated: #2e1a16;
+    --color-border: #4e2a22;
+    --color-accent: #e8915a;
+    --color-accent-hover: #f0a06a;
+}

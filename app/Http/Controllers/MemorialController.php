@@ -64,7 +64,7 @@ class MemorialController extends Controller
     public function show(string $slug): View
     {
         $memorial = Memorial::where('slug', $slug)
-            ->with(['photos', 'approvedTributes', 'virtualGifts', 'timelineEvents', 'user', 'familyLinks.relatedMemorial'])
+            ->with(['photos', 'approvedTributes', 'virtualGifts', 'timelineEvents', 'user', 'familyLinks.relatedMemorial', 'voiceMemories.user'])
             ->firstOrFail();
 
         return view('memorial.show', compact('memorial'));
@@ -74,7 +74,7 @@ class MemorialController extends Controller
     {
         $this->authorize('update', $memorial);
 
-        $memorial->load(['photos', 'videos', 'timelineEvents', 'tributes', 'managers']);
+        $memorial->load(['photos', 'videos', 'timelineEvents', 'tributes', 'managers', 'voiceMemories']);
 
         return view('dashboard.memorials.edit', compact('memorial'));
     }

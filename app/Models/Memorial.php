@@ -18,6 +18,20 @@ class Memorial extends Model
 {
     use HasFactory, Searchable, SoftDeletes;
 
+    public const THEME_CLASSIC = 'classic';
+    public const THEME_GARDEN = 'garden';
+    public const THEME_CELESTIAL = 'celestial';
+    public const THEME_OCEAN = 'ocean';
+    public const THEME_SUNSET = 'sunset';
+
+    public const THEMES = [
+        self::THEME_CLASSIC,
+        self::THEME_GARDEN,
+        self::THEME_CELESTIAL,
+        self::THEME_OCEAN,
+        self::THEME_SUNSET,
+    ];
+
     protected $fillable = [
         'user_id',
         'slug',
@@ -38,6 +52,7 @@ class Memorial extends Model
         'cemetery_name',
         'cemetery_address',
         'is_published',
+        'theme',
     ];
 
     protected function casts(): array
@@ -128,6 +143,33 @@ class Memorial extends Model
     public function qrCode(): HasOne
     {
         return $this->hasOne(QrCode::class);
+    }
+
+    public function voiceMemories(): HasMany
+    {
+        return $this->hasMany(VoiceMemory::class)->orderBy('sort_order');
+    }
+
+    public static function availableThemes(): array
+    {
+        return [
+            self::THEME_CLASSIC => ['name' => 'Classic', 'icon' => '🕯️', 'description' => 'Elegant dark theme with gold accents'],
+            self::THEME_GARDEN => ['name' => 'Garden', 'icon' => '🌿', 'description' => 'Soft greens and natural tones'],
+            self::THEME_CELESTIAL => ['name' => 'Celestial', 'icon' => '✨', 'description' => 'Deep blues with starlit accents'],
+            self::THEME_OCEAN => ['name' => 'Ocean', 'icon' => '🌊', 'description' => 'Calm ocean blues and teals'],
+            self::THEME_SUNSET => ['name' => 'Sunset', 'icon' => '🌅', 'description' => 'Warm amber and rose tones'],
+        ];
+    }
+
+    public function themeClasses(): string
+    {
+        return match ($this->theme) {
+            self::THEME_GARDEN => 'memorial-theme-garden',
+            self::THEME_CELESTIAL => 'memorial-theme-celestial',
+            self::THEME_OCEAN => 'memorial-theme-ocean',
+            self::THEME_SUNSET => 'memorial-theme-sunset',
+            default => 'memorial-theme-classic',
+        };
     }
 
     public function fullName(): string
