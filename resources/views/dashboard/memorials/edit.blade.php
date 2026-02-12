@@ -1,4 +1,4 @@
-<x-layouts.app :title="__('Edit Memorial') . ' — ' . $memorial->full_name">
+<x-layouts.app :title="__('Edit Memorial') . ' — ' . $memorial->fullName()">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
         {{-- Header --}}
@@ -11,7 +11,7 @@
                     {{ __('Back to Memorials') }}
                 </a>
                 <h1 class="font-serif text-3xl font-bold text-text">{{ __('Edit Memorial') }}</h1>
-                <p class="mt-2 text-text-muted text-sm">{{ $memorial->full_name }}</p>
+                <p class="mt-2 text-text-muted text-sm">{{ $memorial->fullName() }}</p>
             </div>
             <div class="flex items-center gap-3">
                 @if($memorial->is_published)

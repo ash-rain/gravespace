@@ -8,8 +8,8 @@
     @push('head')
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Person",
+        "@@context": "https://schema.org",
+        "@@@type": "Person",
         "name": "{{ $memorial->fullName() }}",
         "givenName": "{{ $memorial->first_name }}",
         "familyName": "{{ $memorial->last_name }}",

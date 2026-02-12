@@ -121,7 +121,7 @@
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 bg-elevated rounded-xl overflow-hidden shrink-0">
                                     @if($memorial->profile_photo)
-                                        <img src="{{ Storage::url($memorial->profile_photo) }}" alt="{{ $memorial->full_name }}" class="w-full h-full object-cover">
+                                        <img src="{{ Storage::url($memorial->profile_photo) }}" alt="{{ $memorial->fullName() }}" class="w-full h-full object-cover">
                                     @else
                                         <div class="w-full h-full flex items-center justify-center">
                                             <svg class="w-6 h-6 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,7 +131,7 @@
                                     @endif
                                 </div>
                                 <div>
-                                    <h3 class="text-text font-semibold text-sm">{{ $memorial->full_name }}</h3>
+                                    <h3 class="text-text font-semibold text-sm">{{ $memorial->fullName() }}</h3>
                                     <p class="text-text-muted text-xs mt-0.5">
                                         {{ $memorial->date_of_birth?->format('M d, Y') }} &mdash; {{ $memorial->date_of_death?->format('M d, Y') }}
                                     </p>

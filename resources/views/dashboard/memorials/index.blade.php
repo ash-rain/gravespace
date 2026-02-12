@@ -35,7 +35,7 @@
                         {{-- Cover Photo --}}
                         <div class="relative h-40 bg-elevated overflow-hidden">
                             @if($memorial->cover_photo)
-                                <img src="{{ Storage::url($memorial->cover_photo) }}" alt="{{ $memorial->full_name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <img src="{{ Storage::url($memorial->cover_photo) }}" alt="{{ $memorial->fullName() }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                             @else
                                 <div class="w-full h-full flex items-center justify-center">
                                     <svg class="w-12 h-12 text-text-muted/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -54,7 +54,7 @@
 
                         {{-- Card Body --}}
                         <div class="p-5">
-                            <h3 class="font-serif text-lg font-semibold text-text truncate">{{ $memorial->full_name }}</h3>
+                            <h3 class="font-serif text-lg font-semibold text-text truncate">{{ $memorial->fullName() }}</h3>
                             <p class="text-text-muted text-sm mt-1">
                                 {{ $memorial->date_of_birth?->format('M d, Y') }} &mdash; {{ $memorial->date_of_death?->format('M d, Y') }}
                             </p>

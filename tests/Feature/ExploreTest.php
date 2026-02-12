@@ -154,7 +154,9 @@ class ExploreTest extends TestCase
         $response = $this->get('/explore?search=HiddenAlbert');
 
         $response->assertStatus(200);
-        $response->assertDontSee('HiddenAlbert');
+        // The search term appears in the search input, so assert the last name
+        // (which only appears if the memorial card is rendered) is absent.
+        $response->assertDontSee('Secret');
     }
 
     public function test_explore_page_is_accessible_without_authentication(): void
