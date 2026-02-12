@@ -39,7 +39,8 @@
                     <div
                         class="bg-surface border border-border rounded-xl overflow-hidden group hover:border-accent/30 transition-colors">
                         {{-- Cover Photo --}}
-                        <div class="relative h-40 bg-elevated overflow-hidden">
+                        <a href="{{ route('memorial.show', $memorial) }}"
+                            class="block relative h-40 bg-elevated overflow-hidden">
                             @if ($memorial->cover_photo)
                                 <img src="{{ Storage::url($memorial->cover_photo) }}" alt="{{ $memorial->fullName() }}"
                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -60,12 +61,15 @@
                                     {{ $memorial->is_published ? __('Published') : __('Draft') }}
                                 </span>
                             </div>
-                        </div>
+                        </a>
 
                         {{-- Card Body --}}
                         <div class="p-5">
-                            <h3 class="font-serif text-lg font-semibold text-text truncate">{{ $memorial->fullName() }}
-                            </h3>
+                            <a href="{{ route('memorial.show', $memorial) }}" class="block">
+                                <h3
+                                    class="font-serif text-lg font-semibold text-text truncate hover:text-accent transition-colors">
+                                    {{ $memorial->fullName() }}</h3>
+                            </a>
                             <p class="text-text-muted text-sm mt-1">
                                 {{ $memorial->date_of_birth?->format('M d, Y') }} &mdash;
                                 {{ $memorial->date_of_death?->format('M d, Y') }}

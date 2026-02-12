@@ -11,26 +11,29 @@
         <div class="bg-surface border border-border rounded-xl p-6 sm:p-8 mb-8">
             <h2 class="font-serif text-xl font-semibold text-text mb-6">{{ __('Current Plan') }}</h2>
 
-            @if($user->lifetime_premium)
+            @if ($user->lifetime_premium)
                 {{-- Lifetime Premium --}}
                 <div class="flex items-center gap-4 p-6 bg-accent/5 border border-accent/20 rounded-xl">
                     <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
                         <svg class="w-7 h-7 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                     </div>
                     <div>
                         <h3 class="text-accent font-serif text-xl font-bold">{{ __('Lifetime Premium') }}</h3>
-                        <p class="text-text-muted text-sm mt-1">{{ __('You have lifetime access to all premium features. Thank you for your support!') }}</p>
+                        <p class="text-text-muted text-sm mt-1">
+                            {{ __('You have lifetime access to all premium features. Thank you for your support!') }}
+                        </p>
                     </div>
                 </div>
-
             @elseif($isPremium)
                 {{-- Active Subscription --}}
                 <div class="flex items-center gap-4 p-6 bg-accent/5 border border-accent/20 rounded-xl mb-6">
                     <div class="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
                         <svg class="w-7 h-7 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                         </svg>
                     </div>
                     <div>
@@ -40,25 +43,29 @@
                 </div>
 
                 {{-- Manage Subscription --}}
-                <a href="{{ route('dashboard.billing.portal') }}" class="inline-flex items-center gap-2 px-6 py-3 bg-elevated border border-border text-text font-semibold text-sm rounded-xl hover:bg-surface hover:border-accent/30 transition-colors">
+                <a href="{{ route('dashboard.billing.portal') }}"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-elevated border border-border text-text font-semibold text-sm rounded-xl hover:bg-surface hover:border-accent/30 transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                     {{ __('Manage Subscription') }}
                 </a>
-
             @else
                 {{-- Free Plan --}}
                 <div class="flex items-center gap-4 p-6 bg-elevated border border-border rounded-xl mb-8">
                     <div class="w-14 h-14 bg-surface rounded-xl flex items-center justify-center shrink-0">
                         <svg class="w-7 h-7 text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                     </div>
                     <div>
                         <h3 class="text-text font-serif text-xl font-bold">{{ __('Free Plan') }}</h3>
-                        <p class="text-text-muted text-sm mt-1">{{ __('You are on the free plan with limited features.') }}</p>
+                        <p class="text-text-muted text-sm mt-1">
+                            {{ __('You are on the free plan with limited features.') }}</p>
                     </div>
                 </div>
 
@@ -67,37 +74,104 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {{-- Monthly Plan --}}
-                    <div class="bg-elevated border border-border rounded-xl p-6 hover:border-accent/30 transition-colors">
+                    <div
+                        class="bg-elevated border border-border rounded-xl p-6 hover:border-accent/30 transition-colors">
                         <div class="mb-4">
                             <h4 class="font-serif text-lg font-bold text-text">{{ __('Monthly') }}</h4>
                             <div class="flex items-baseline gap-1 mt-2">
-                                <span class="text-3xl font-bold font-serif text-accent">$9</span>
+                                <span class="text-3xl font-bold font-serif text-accent">$7.99</span>
                                 <span class="text-text-muted text-sm">/ {{ __('month') }}</span>
                             </div>
                         </div>
 
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
-                                {{ __('Unlimited memorials') }}
+                                <span><strong class="text-text">{{ __('Unlimited') }}</strong>
+                                    {{ __('memorial pages') }}</span>
                             </li>
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
-                                {{ __('Custom QR codes') }}
+                                <span><strong class="text-text">{{ __('Unlimited') }}</strong>
+                                    {{ __('photos & videos') }}</span>
                             </li>
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
-                                {{ __('Custom memorial URLs') }}
+                                {{ __('Life timeline feature') }}
                             </li>
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Privacy controls & password protection') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Printable QR codes for gravestones') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Custom memorial slug / URL') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Family tree & relationship links') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Voice memories & audio tributes') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Beautiful memorial themes') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                                {{ __('Export memorial as PDF keepsake') }}
+                            </li>
+                            <li class="flex items-center gap-2 text-text-muted text-sm">
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
                                 {{ __('Priority support') }}
                             </li>
@@ -106,81 +180,64 @@
                         <form method="POST" action="{{ route('dashboard.checkout') }}">
                             @csrf
                             <input type="hidden" name="plan" value="monthly">
-                            <button type="submit" class="w-full px-6 py-3 bg-accent text-primary font-semibold text-sm rounded-xl hover:bg-accent/90 transition-colors">
+                            <button type="submit"
+                                class="w-full px-6 py-3 bg-accent text-primary font-semibold text-sm rounded-xl hover:bg-accent/90 transition-colors">
                                 {{ __('Subscribe Monthly') }}
                             </button>
                         </form>
                     </div>
 
-                    {{-- Yearly Plan --}}
+                    {{-- One-Time Premium --}}
                     <div class="bg-elevated border-2 border-accent/40 rounded-xl p-6 relative">
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2">
-                            <span class="inline-flex items-center px-3 py-1 bg-accent text-primary text-xs font-bold rounded-full">
+                            <span
+                                class="inline-flex items-center px-3 py-1 bg-accent text-primary text-xs font-bold rounded-full">
                                 {{ __('Best Value') }}
                             </span>
                         </div>
 
                         <div class="mb-4">
-                            <h4 class="font-serif text-lg font-bold text-text">{{ __('Yearly') }}</h4>
+                            <h4 class="font-serif text-lg font-bold text-text">{{ __('Lifetime Premium') }}</h4>
                             <div class="flex items-baseline gap-1 mt-2">
                                 <span class="text-3xl font-bold font-serif text-accent">$79</span>
-                                <span class="text-text-muted text-sm">/ {{ __('year') }}</span>
+                                <span class="text-text-muted text-sm">{{ __('one-time') }}</span>
                             </div>
-                            <p class="text-accent/70 text-xs mt-1">{{ __('Save over 25% compared to monthly') }}</p>
+                            <p class="text-accent/70 text-xs mt-1">
+                                {{ __('One-time payment. Access premium features forever.') }}</p>
                         </div>
 
                         <ul class="space-y-3 mb-6">
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
-                                {{ __('Everything in Monthly') }}
+                                <span><strong class="text-text">{{ __('Everything in Premium') }}</strong></span>
                             </li>
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
-                                {{ __('Unlimited photo storage') }}
+                                {{ __('No recurring charges') }}
                             </li>
                             <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
-                                {{ __('Advanced analytics') }}
-                            </li>
-                            <li class="flex items-center gap-2 text-text-muted text-sm">
-                                <svg class="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                </svg>
-                                {{ __('25% savings') }}
+                                {{ __('Lifetime access to all features') }}
                             </li>
                         </ul>
 
                         <form method="POST" action="{{ route('dashboard.checkout') }}">
                             @csrf
-                            <input type="hidden" name="plan" value="yearly">
-                            <button type="submit" class="w-full px-6 py-3 bg-accent text-primary font-semibold text-sm rounded-xl hover:bg-accent/90 transition-colors">
-                                {{ __('Subscribe Yearly') }}
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
-                {{-- Lifetime Option --}}
-                <div class="mt-6 bg-elevated border border-border rounded-xl p-6">
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                        <div>
-                            <h4 class="font-serif text-lg font-bold text-text">{{ __('Lifetime Premium') }}</h4>
-                            <p class="text-text-muted text-sm mt-1">{{ __('One-time payment. Access premium features forever.') }}</p>
-                            <div class="flex items-baseline gap-1 mt-2">
-                                <span class="text-2xl font-bold font-serif text-accent">$249</span>
-                                <span class="text-text-muted text-sm">{{ __('one time') }}</span>
-                            </div>
-                        </div>
-                        <form method="POST" action="{{ route('dashboard.checkout') }}">
-                            @csrf
                             <input type="hidden" name="plan" value="lifetime">
-                            <button type="submit" class="inline-flex items-center justify-center px-6 py-3 bg-accent text-primary font-semibold text-sm rounded-xl hover:bg-accent/90 transition-colors shrink-0">
+                            <button type="submit"
+                                class="w-full px-6 py-3 bg-accent text-primary font-semibold text-sm rounded-xl hover:bg-accent/90 transition-colors">
                                 {{ __('Buy Lifetime') }}
                             </button>
                         </form>
@@ -210,15 +267,44 @@
                         </tr>
                         <tr>
                             <td class="py-3 pr-4 text-text">{{ __('Photos per memorial') }}</td>
-                            <td class="py-3 px-4 text-center text-text-muted">{{ __('10') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">{{ __('5') }}</td>
                             <td class="py-3 pl-4 text-center text-accent">{{ __('Unlimited') }}</td>
                         </tr>
                         <tr>
-                            <td class="py-3 pr-4 text-text">{{ __('Custom QR codes') }}</td>
+                            <td class="py-3 pr-4 text-text">{{ __('Videos') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center text-accent">{{ __('Unlimited') }}</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('Life timeline') }}</td>
                             <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
                             <td class="py-3 pl-4 text-center">
-                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('Privacy controls & password protection') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('Printable QR codes') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
                             </td>
                         </tr>
@@ -226,8 +312,54 @@
                             <td class="py-3 pr-4 text-text">{{ __('Custom URL slugs') }}</td>
                             <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
                             <td class="py-3 pl-4 text-center">
-                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('Family tree & relationships') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('Voice memories') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('Memorial themes') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
+                                </svg>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 pr-4 text-text">{{ __('PDF export') }}</td>
+                            <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
+                            <td class="py-3 pl-4 text-center">
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
                             </td>
                         </tr>
@@ -235,8 +367,10 @@
                             <td class="py-3 pr-4 text-text">{{ __('Priority support') }}</td>
                             <td class="py-3 px-4 text-center text-text-muted">&mdash;</td>
                             <td class="py-3 pl-4 text-center">
-                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                <svg class="w-5 h-5 text-accent mx-auto" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7" />
                                 </svg>
                             </td>
                         </tr>
