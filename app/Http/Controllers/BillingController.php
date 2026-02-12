@@ -21,7 +21,7 @@ class BillingController extends Controller
     public function checkout(Request $request): mixed
     {
         $request->validate([
-            'plan' => ['required', 'in:monthly,lifetime'],
+            'plan' => ['required', 'in:monthly,lifetime,concierge'],
         ]);
 
         $user = $request->user();
@@ -29,13 +29,17 @@ class BillingController extends Controller
         if ($request->plan === 'monthly') {
             return $user->newSubscription('default', config('services.stripe.monthly_price_id'))
                 ->checkout([
-                    'success_url' => route('dashboard.billing') . '?success=1',
+                    'success_url' => route('dashboard.billing').'?success=1',
                     'cancel_url' => route('pricing'),
                 ]);
         }
 
-        return $user->checkout(config('services.stripe.lifetime_price_id'), [
-            'success_url' => route('dashboard.billing') . '?success=1',
+        $priceId = $request->plan === 'concierge'
+            ? config('services.stripe.concierge_price_id')
+            : config('services.stripe.lifetime_price_id');
+
+        return $user->checkout($priceId, [
+            'success_url' => route('dashboard.billing').'?success=1',
             'cancel_url' => route('pricing'),
             'mode' => 'payment',
         ]);

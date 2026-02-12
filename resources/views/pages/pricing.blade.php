@@ -17,7 +17,7 @@
             {{-- Pricing Toggle --}}
             <div class="flex items-center justify-center gap-3 mt-10" x-data="{ annual: false }">
                 <span class="text-sm" :class="annual ? 'text-text-muted' : 'text-text font-medium'">{{ __('Monthly') }}</span>
-                <button @click="annual = !annual" class="relative w-12 h-6 bg-elevated border border-border rounded-full transition-colors" :class="annual && 'bg-accent/20 border-accent/30'">
+                <button @click="annual = !annual; $dispatch('pricing-toggle', annual)" class="relative w-12 h-6 bg-elevated border border-border rounded-full transition-colors" :class="annual && 'bg-accent/20 border-accent/30'">
                     <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-text rounded-full transition-transform duration-200" :class="annual && 'translate-x-6'"></span>
                 </button>
                 <span class="text-sm" :class="annual ? 'text-text font-medium' : 'text-text-muted'">{{ __('One-time') }}</span>
@@ -64,7 +64,7 @@
                 </div>
 
                 {{-- Premium Tier (Highlighted) --}}
-                <div class="relative bg-surface/80 backdrop-blur-sm border-2 border-accent rounded-2xl p-8 flex flex-col shadow-lg shadow-accent/10">
+                <div class="relative bg-surface/80 backdrop-blur-sm border-2 border-accent rounded-2xl p-8 flex flex-col shadow-lg shadow-accent/10" x-data="{ annual: false }" @pricing-toggle.window="annual = $event.detail">
                     <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
                         <span class="bg-accent text-primary text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wide">{{ __('Most Popular') }}</span>
                     </div>
@@ -72,7 +72,7 @@
                         <h3 class="font-serif text-xl font-semibold text-accent">{{ __('Premium') }}</h3>
                         <p class="text-sm text-text-muted mt-1">{{ __('For families who want more') }}</p>
                     </div>
-                    <div class="mb-8" x-data="{ annual: false }" x-init="$watch('annual', () => {})" @pricing-toggle.window="annual = $event.detail">
+                    <div class="mb-8">
                         <div x-show="!annual">
                             <span class="font-serif text-4xl font-bold text-text">$7.99</span>
                             <span class="text-text-muted text-sm ml-1">/ {{ __('month') }}</span>
@@ -131,7 +131,7 @@
                     @auth
                         <form method="POST" action="{{ route('dashboard.checkout') }}">
                             @csrf
-                            <input type="hidden" name="plan" value="premium">
+                            <input type="hidden" name="plan" :value="annual ? 'lifetime' : 'monthly'">
                             <button type="submit" class="block w-full text-center px-6 py-3 text-sm font-semibold bg-accent hover:bg-accent-hover text-primary rounded-lg transition-colors duration-200 shadow-lg shadow-accent/20">
                                 {{ __('Upgrade to Premium') }}
                             </button>
