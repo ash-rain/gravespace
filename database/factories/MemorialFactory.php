@@ -48,6 +48,7 @@ class MemorialFactory extends Factory
             'cemetery_name' => fake()->optional(0.7)->company() . ' Cemetery',
             'cemetery_address' => fake()->optional(0.7)->address(),
             'is_published' => true,
+            'theme' => 'classic',
         ];
     }
 
