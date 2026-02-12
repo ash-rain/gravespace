@@ -59,7 +59,7 @@ class TributesTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
-                \Filament\Tables\Actions\Action::make('approve')
+                \Filament\Actions\Action::make('approve')
                     ->label('Approve')
                     ->icon('heroicon-o-check-circle')
                     ->color('success')
@@ -73,7 +73,7 @@ class TributesTable
                             ->success()
                             ->send();
                     }),
-                \Filament\Tables\Actions\Action::make('reject')
+                \Filament\Actions\Action::make('reject')
                     ->label('Reject')
                     ->icon('heroicon-o-x-circle')
                     ->color('warning')
@@ -91,7 +91,7 @@ class TributesTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    \Filament\Tables\Actions\BulkAction::make('approveSelected')
+                    \Filament\Actions\BulkAction::make('approveSelected')
                         ->label('Approve Selected')
                         ->icon('heroicon-o-check-circle')
                         ->color('success')

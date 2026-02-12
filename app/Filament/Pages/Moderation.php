@@ -65,7 +65,7 @@ class Moderation extends Page implements HasTable
                     ->sortable(),
             ])
             ->recordActions([
-                \Filament\Tables\Actions\Action::make('approve')
+                \Filament\Actions\Action::make('approve')
                     ->label('Approve')
                     ->icon('heroicon-o-check-circle')
                     ->color('success')
@@ -78,7 +78,7 @@ class Moderation extends Page implements HasTable
                             ->success()
                             ->send();
                     }),
-                \Filament\Tables\Actions\Action::make('reject')
+                \Filament\Actions\Action::make('reject')
                     ->label('Reject')
                     ->icon('heroicon-o-x-circle')
                     ->color('warning')
@@ -91,7 +91,7 @@ class Moderation extends Page implements HasTable
                             ->warning()
                             ->send();
                     }),
-                \Filament\Tables\Actions\Action::make('delete')
+                \Filament\Actions\Action::make('delete')
                     ->label('Delete')
                     ->icon('heroicon-o-trash')
                     ->color('danger')
@@ -107,7 +107,7 @@ class Moderation extends Page implements HasTable
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
-                    \Filament\Tables\Actions\BulkAction::make('approveSelected')
+                    \Filament\Actions\BulkAction::make('approveSelected')
                         ->label('Approve Selected')
                         ->icon('heroicon-o-check-circle')
                         ->color('success')
