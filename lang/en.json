@@ -11,7 +11,6 @@
     "Pricing": "Pricing",
     "About": "About",
     "Create Account": "Create Account",
-
     "Honor Those": "Honor Those",
     "Who Matter": "Who Matter",
     "Every Life Deserves": "Every Life Deserves",
@@ -46,7 +45,6 @@
     "Tell Their Story": "Tell Their Story",
     "Add photos, write an obituary, create a timeline of their life milestones.": "Add photos, write an obituary, create a timeline of their life milestones.",
     "Honoring Lives": "Honoring Lives",
-
     "Simple, Honest": "Simple, Honest",
     "Start for free. Upgrade when you need more. No hidden fees, no surprises.": "Start for free. Upgrade when you need more. No hidden fees, no surprises.",
     "Starter": "Starter",
@@ -108,7 +106,6 @@
     "Advanced analytics": "Advanced analytics",
     "Monthly": "Monthly",
     "Best Value": "Best Value",
-
     "Preserving Memories,": "Preserving Memories,",
     "Learn about GraveSpace and our mission to preserve the memory of loved ones through beautiful, lasting digital memorials.": "Learn about GraveSpace and our mission to preserve the memory of loved ones through beautiful, lasting digital memorials.",
     "Our Mission": "Our Mission",
@@ -129,7 +126,6 @@
     "Honor Someone You Love": "Honor Someone You Love",
     "Sign up for free and start building your memorial page in minutes.": "Sign up for free and start building your memorial page in minutes.",
     "Create an Account": "Create an Account",
-
     "Browse public memorials and pay your respects to those who have passed.": "Browse public memorials and pay your respects to those who have passed.",
     "Search by name...": "Search by name...",
     "Search memorials...": "Search memorials...",
@@ -142,7 +138,6 @@
     "flowers": "flowers",
     "stars": "stars",
     "trees": "trees",
-
     "Gallery": "Gallery",
     "Timeline": "Timeline",
     "Tributes & Memories": "Tributes & Memories",
@@ -190,7 +185,6 @@
     "Photo of :name": "Photo of :name",
     "Memorial photo": "Memorial photo",
     "Back to GraveSpace": "Back to GraveSpace",
-
     "This Memorial is Private": "This Memorial is Private",
     "This memorial is password protected.": "This memorial is password protected.",
     "Please enter the password to view this memorial page.": "Please enter the password to view this memorial page.",
@@ -200,9 +194,7 @@
     "Enter memorial password": "Enter memorial password",
     "Confirm": "Confirm",
     "View Memorial": "View Memorial",
-
     "Leave a virtual gift": "Leave a virtual gift",
-
     "Welcome back, :name": "Welcome back, :name",
     "Manage your memorials and keep memories alive.": "Manage your memorials and keep memories alive.",
     "Total Memorials": "Total Memorials",
@@ -223,7 +215,6 @@
     "You have not created any memorials yet.": "You have not created any memorials yet.",
     "Create your first memorial to honor and preserve the memory of a loved one.": "Create your first memorial to honor and preserve the memory of a loved one.",
     "Create Your First Memorial": "Create Your First Memorial",
-
     "My Memorials": "My Memorials",
     "Manage and organize all your memorials.": "Manage and organize all your memorials.",
     "Create New Memorial": "Create New Memorial",
@@ -234,7 +225,6 @@
     "Delete": "Delete",
     "Are you sure you want to delete this memorial? This action cannot be undone.": "Are you sure you want to delete this memorial? This action cannot be undone.",
     ":count photos": ":count photos",
-
     "Back to Memorials": "Back to Memorials",
     "Please correct the following errors:": "Please correct the following errors:",
     "Personal Information": "Personal Information",
@@ -274,7 +264,6 @@
     "e.g., -74.0060": "e.g., -74.0060",
     "Cancel": "Cancel",
     "Save": "Save",
-
     "Edit Memorial": "Edit Memorial",
     "Current cover photo": "Current cover photo",
     "Upload a new image to replace the current one.": "Upload a new image to replace the current one.",
@@ -307,7 +296,6 @@
     "Save Changes": "Save Changes",
     "Current": "Current",
     "Memorial": "Memorial",
-
     "Billing & Subscription": "Billing & Subscription",
     "Manage your plan and subscription details.": "Manage your plan and subscription details.",
     "Lifetime Premium": "Lifetime Premium",
@@ -318,7 +306,6 @@
     "1": "1",
     "10": "10",
     "forever": "forever",
-
     "Add Timeline Event": "Add Timeline Event",
     "Edit Event": "Edit Event",
     "Title": "Title",
@@ -328,12 +315,9 @@
     "Add Event": "Add Event",
     "Delete this event?": "Delete this event?",
     "Life events and milestones will appear here once they are added to the memorial.": "Life events and milestones will appear here once they are added to the memorial.",
-
     "No photos have been added yet.": "No photos have been added yet.",
-
     "Clear search": "Clear search",
     "No memorials found.": "No memorials found.",
-
     "Welcome Back": "Welcome Back",
     "Email": "Email",
     "Remember me": "Remember me",
@@ -359,7 +343,6 @@
     "Resend Verification Email": "Resend Verification Email",
     "This is a secure area of the application. Please confirm your password before continuing.": "This is a secure area of the application. Please confirm your password before continuing.",
     "Saved.": "Saved.",
-
     "Profile Information": "Profile Information",
     "Update your account's profile information and email address.": "Update your account's profile information and email address.",
     "Your email address is unverified.": "Your email address is unverified.",
@@ -371,20 +354,16 @@
     "Are you sure you want to delete your account?": "Are you sure you want to delete your account?",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.",
     "Enter a new password (leave empty to keep current)": "Enter a new password (leave empty to keep current)",
-
     "A premium virtual memorial platform. Create beautiful, lasting tributes for the people who shaped your life.": "A premium virtual memorial platform. Create beautiful, lasting tributes for the people who shaped your life.",
     "Platform": "Platform",
     "Account": "Account",
     "All rights reserved.": "All rights reserved.",
     "Create a memorial on GraveSpace": "Create a memorial on GraveSpace",
-
     "Language": "Language",
-
     "Moderation": "Moderation",
     "Review and manage pending tributes across all your memorials.": "Review and manage pending tributes across all your memorials.",
     "All": "All",
     "No pending tributes. All caught up!": "No pending tributes. All caught up!",
-
     "Reminders": "Reminders",
     "Add Reminder": "Add Reminder",
     "Disable": "Disable",
@@ -401,7 +380,6 @@
     "Death Anniversary": "Death Anniversary",
     "Custom (yearly)": "Custom (yearly)",
     "You already have a reminder of this type for this memorial.": "You already have a reminder of this type for this memorial.",
-
     "Family Connections": "Family Connections",
     "Add Connection": "Add Connection",
     "No family connections yet. Link related memorials together.": "No family connections yet. Link related memorials together.",
@@ -422,7 +400,6 @@
     "Nephew": "Nephew",
     "Cannot link a memorial to itself.": "Cannot link a memorial to itself.",
     "This connection already exists.": "This connection already exists.",
-
     "Managers & Invitations": "Managers & Invitations",
     "Invite": "Invite",
     "Current Managers": "Current Managers",
@@ -440,7 +417,6 @@
     "An invitation has already been sent to this email.": "An invitation has already been sent to this email.",
     "This invitation has expired.": "This invitation has expired.",
     "Invitation accepted. You now have :role access to this memorial.": "Invitation accepted. You now have :role access to this memorial.",
-
     "Video uploads require a Premium subscription.": "Video uploads require a Premium subscription.",
     "Video uploaded successfully. Processing will complete shortly.": "Video uploaded successfully. Processing will complete shortly.",
     "Video updated.": "Video updated.",

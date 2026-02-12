@@ -11,7 +11,6 @@
     "Pricing": "Цени",
     "About": "За нас",
     "Create Account": "Създаване на акаунт",
-
     "Honor Those": "Почетете тези",
     "Who Matter": "Които имат значение",
     "Every Life Deserves": "Всеки живот заслужава",
@@ -46,7 +45,6 @@
     "Tell Their Story": "Разкажете тяхната история",
     "Add photos, write an obituary, create a timeline of their life milestones.": "Добавете снимки, напишете некролог, създайте хронология на важните моменти от живота им.",
     "Honoring Lives": "Почитане на животи",
-
     "Simple, Honest": "Просто, честно",
     "Start for free. Upgrade when you need more. No hidden fees, no surprises.": "Започнете безплатно. Надградете, когато имате нужда от повече. Без скрити такси, без изненади.",
     "Starter": "Стартов",
@@ -108,7 +106,6 @@
     "Advanced analytics": "Разширена анализ",
     "Monthly": "Месечно",
     "Best Value": "Най-изгодно",
-
     "Preserving Memories,": "Съхраняване на спомени,",
     "Learn about GraveSpace and our mission to preserve the memory of loved ones through beautiful, lasting digital memorials.": "Научете повече за GraveSpace и нашата мисия да съхраняваме паметта на близките чрез красиви, трайни дигитални мемориали.",
     "Our Mission": "Нашата мисия",
@@ -129,7 +126,6 @@
     "Honor Someone You Love": "Почетете някой, когото обичате",
     "Sign up for free and start building your memorial page in minutes.": "Регистрирайте се безплатно и започнете да създавате Вашата мемориална страница за минути.",
     "Create an Account": "Създаване на акаунт",
-
     "Browse public memorials and pay your respects to those who have passed.": "Разгледайте публични мемориали и отдайте почит на починалите.",
     "Search by name...": "Търсене по име...",
     "Search memorials...": "Търсене на мемориали...",
@@ -142,7 +138,6 @@
     "flowers": "цветя",
     "stars": "звезди",
     "trees": "дръвчета",
-
     "Gallery": "Галерия",
     "Timeline": "Хронология",
     "Tributes & Memories": "Почести и спомени",
@@ -190,7 +185,6 @@
     "Photo of :name": "Снимка на :name",
     "Memorial photo": "Мемориална снимка",
     "Back to GraveSpace": "Обратно към GraveSpace",
-
     "This Memorial is Private": "Този мемориал е личен",
     "This memorial is password protected.": "Този мемориал е защитен с парола.",
     "Please enter the password to view this memorial page.": "Моля, въведете паролата, за да видите тази мемориална страница.",
@@ -200,9 +194,7 @@
     "Enter memorial password": "Въведете паролата на мемориала",
     "Confirm": "Потвърдете",
     "View Memorial": "Вижте мемориала",
-
     "Leave a virtual gift": "Оставете виртуален подарък",
-
     "Welcome back, :name": "Добре дошли отново, :name",
     "Manage your memorials and keep memories alive.": "Управлявайте Вашите мемориали и пазете спомените живи.",
     "Total Memorials": "Общо мемориали",
@@ -223,7 +215,6 @@
     "You have not created any memorials yet.": "Все още не сте създали мемориали.",
     "Create your first memorial to honor and preserve the memory of a loved one.": "Създайте първия си мемориал, за да почетете и съхраните паметта на близък.",
     "Create Your First Memorial": "Създайте първия си мемориал",
-
     "My Memorials": "Моите мемориали",
     "Manage and organize all your memorials.": "Управлявайте и организирайте всичките си мемориали.",
     "Create New Memorial": "Създаване на нов мемориал",
@@ -234,7 +225,6 @@
     "Delete": "Изтриване",
     "Are you sure you want to delete this memorial? This action cannot be undone.": "Сигурни ли сте, че искате да изтриете този мемориал? Това действие не може да бъде отменено.",
     ":count photos": ":count снимки",
-
     "Back to Memorials": "Обратно към мемориалите",
     "Please correct the following errors:": "Моля, коригирайте следните грешки:",
     "Personal Information": "Лична информация",
@@ -274,7 +264,6 @@
     "e.g., -74.0060": "напр. 23.3219",
     "Cancel": "Отказ",
     "Save": "Запазване",
-
     "Edit Memorial": "Редактиране на мемориал",
     "Current cover photo": "Текуща корична снимка",
     "Upload a new image to replace the current one.": "Качете ново изображение, за да замените текущото.",
@@ -307,7 +296,6 @@
     "Save Changes": "Запазване на промените",
     "Current": "Текущ",
     "Memorial": "Мемориал",
-
     "Billing & Subscription": "Фактуриране и абонамент",
     "Manage your plan and subscription details.": "Управлявайте Вашия план и детайли за абонамента.",
     "Lifetime Premium": "Доживотен Премиум",
@@ -318,7 +306,6 @@
     "1": "1",
     "10": "10",
     "forever": "завинаги",
-
     "Add Timeline Event": "Добавяне на събитие в хронологията",
     "Edit Event": "Редактиране на събитие",
     "Title": "Заглавие",
@@ -328,12 +315,9 @@
     "Add Event": "Добавяне на събитие",
     "Delete this event?": "Да се изтрие ли това събитие?",
     "Life events and milestones will appear here once they are added to the memorial.": "Жизнените събития и важните моменти ще се появят тук, след като бъдат добавени към мемориала.",
-
     "No photos have been added yet.": "Все още не са добавени снимки.",
-
     "Clear search": "Изчистване на търсенето",
     "No memorials found.": "Не са намерени мемориали.",
-
     "Welcome Back": "Добре дошли отново",
     "Email": "Имейл",
     "Remember me": "Запомни ме",
@@ -359,7 +343,6 @@
     "Resend Verification Email": "Повторно изпращане на имейл за потвърждение",
     "This is a secure area of the application. Please confirm your password before continuing.": "Това е защитена част от приложението. Моля, потвърдете паролата си, преди да продължите.",
     "Saved.": "Запазено.",
-
     "Profile Information": "Информация за профила",
     "Update your account's profile information and email address.": "Актуализирайте информацията за профила и имейл адреса на Вашия акаунт.",
     "Your email address is unverified.": "Вашият имейл адрес не е потвърден.",
@@ -371,20 +354,16 @@
     "Are you sure you want to delete your account?": "Сигурни ли сте, че искате да изтриете акаунта си?",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "След като акаунтът Ви бъде изтрит, всички негови ресурси и данни ще бъдат окончателно изтрити. Моля, въведете паролата си, за да потвърдите, че искате да изтриете окончателно акаунта си.",
     "Enter a new password (leave empty to keep current)": "Въведете нова парола (оставете празно, за да запазите текущата)",
-
     "A premium virtual memorial platform. Create beautiful, lasting tributes for the people who shaped your life.": "Премиум виртуална мемориална платформа. Създайте красиви, трайни почести за хората, които са оформили живота Ви.",
     "Platform": "Платформа",
     "Account": "Акаунт",
     "All rights reserved.": "Всички права запазени.",
     "Create a memorial on GraveSpace": "Създайте мемориал в GraveSpace",
-
     "Language": "Език",
-
     "Moderation": "Модерация",
     "Review and manage pending tributes across all your memorials.": "Прегледайте и управлявайте чакащите почести във всичките си мемориали.",
     "All": "Всички",
     "No pending tributes. All caught up!": "Няма чакащи почести. Всичко е наред!",
-
     "Reminders": "Напомняния",
     "Add Reminder": "Добави напомняне",
     "Disable": "Деактивирай",
@@ -401,7 +380,6 @@
     "Death Anniversary": "Годишнина от смъртта",
     "Custom (yearly)": "Персонализирано (годишно)",
     "You already have a reminder of this type for this memorial.": "Вече имате напомняне от този тип за този мемориал.",
-
     "Family Connections": "Семейни връзки",
     "Add Connection": "Добави връзка",
     "No family connections yet. Link related memorials together.": "Все още няма семейни връзки. Свържете свързани мемориали.",
@@ -422,7 +400,6 @@
     "Nephew": "Племенник",
     "Cannot link a memorial to itself.": "Мемориалът не може да бъде свързан със самия себе си.",
     "This connection already exists.": "Тази връзка вече съществува.",
-
     "Managers & Invitations": "Мениджъри и покани",
     "Invite": "Покани",
     "Current Managers": "Текущи мениджъри",
@@ -440,7 +417,6 @@
     "An invitation has already been sent to this email.": "Покана вече е изпратена на този имейл.",
     "This invitation has expired.": "Тази покана е изтекла.",
     "Invitation accepted. You now have :role access to this memorial.": "Поканата е приета. Вече имате :role достъп до този мемориал.",
-
     "Video uploads require a Premium subscription.": "Качването на видеа изисква Premium абонамент.",
     "Video uploaded successfully. Processing will complete shortly.": "Видеото е качено успешно. Обработката ще приключи скоро.",
     "Video updated.": "Видеото е актуализирано.",

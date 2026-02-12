@@ -34,7 +34,7 @@ class TributesTable
                     ->searchable(),
                 TextColumn::make('memorial.first_name')
                     ->label('Memorial')
-                    ->formatStateUsing(fn ($record) => $record->memorial?->fullName() ?? '—')
+                    ->formatStateUsing(fn($record) => $record->memorial?->fullName() ?? '—')
                     ->sortable(),
                 TextColumn::make('author_email')
                     ->label('Email')
@@ -64,7 +64,7 @@ class TributesTable
                     ->icon('heroicon-o-check-circle')
                     ->color('success')
                     ->requiresConfirmation()
-                    ->visible(fn (Tribute $record): bool => ! $record->is_approved)
+                    ->visible(fn(Tribute $record): bool => ! $record->is_approved)
                     ->action(function (Tribute $record): void {
                         $record->update(['is_approved' => true]);
 
@@ -78,7 +78,7 @@ class TributesTable
                     ->icon('heroicon-o-x-circle')
                     ->color('warning')
                     ->requiresConfirmation()
-                    ->visible(fn (Tribute $record): bool => $record->is_approved)
+                    ->visible(fn(Tribute $record): bool => $record->is_approved)
                     ->action(function (Tribute $record): void {
                         $record->update(['is_approved' => false]);
 

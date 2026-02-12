@@ -51,7 +51,7 @@ class Moderation extends Page implements HasTable
                     ->searchable(),
                 TextColumn::make('memorial.first_name')
                     ->label('Memorial')
-                    ->formatStateUsing(fn ($record) => $record->memorial?->fullName() ?? '—')
+                    ->formatStateUsing(fn($record) => $record->memorial?->fullName() ?? '—')
                     ->sortable(),
                 TextColumn::make('author_email')
                     ->label('Email')

@@ -11,7 +11,6 @@
     "Pricing": "Preise",
     "About": "Über uns",
     "Create Account": "Konto erstellen",
-
     "Honor Those": "Ehren Sie jene",
     "Who Matter": "Die wichtig sind",
     "Every Life Deserves": "Jedes Leben verdient es",
@@ -46,7 +45,6 @@
     "Tell Their Story": "Erzählen Sie ihre Geschichte",
     "Add photos, write an obituary, create a timeline of their life milestones.": "Fügen Sie Fotos hinzu, verfassen Sie einen Nachruf und erstellen Sie eine Zeitleiste ihrer Lebensmeilensteine.",
     "Honoring Lives": "Leben ehren",
-
     "Simple, Honest": "Einfach, ehrlich",
     "Start for free. Upgrade when you need more. No hidden fees, no surprises.": "Starten Sie kostenlos. Upgraden Sie, wenn Sie mehr benötigen. Keine versteckten Gebühren, keine Überraschungen.",
     "Starter": "Starter",
@@ -108,7 +106,6 @@
     "Advanced analytics": "Erweiterte Analysen",
     "Monthly": "Monatlich",
     "Best Value": "Bestes Angebot",
-
     "Preserving Memories,": "Erinnerungen bewahren,",
     "Learn about GraveSpace and our mission to preserve the memory of loved ones through beautiful, lasting digital memorials.": "Erfahren Sie mehr über GraveSpace und unsere Mission, die Erinnerung an geliebte Menschen durch wunderschöne, dauerhafte digitale Gedenkseiten zu bewahren.",
     "Our Mission": "Unsere Mission",
@@ -129,7 +126,6 @@
     "Honor Someone You Love": "Ehren Sie jemanden, den Sie lieben",
     "Sign up for free and start building your memorial page in minutes.": "Registrieren Sie sich kostenlos und beginnen Sie in wenigen Minuten mit der Erstellung Ihrer Gedenkseite.",
     "Create an Account": "Konto erstellen",
-
     "Browse public memorials and pay your respects to those who have passed.": "Durchsuchen Sie öffentliche Gedenkseiten und erweisen Sie den Verstorbenen die letzte Ehre.",
     "Search by name...": "Nach Name suchen...",
     "Search memorials...": "Gedenkseiten durchsuchen...",
@@ -142,7 +138,6 @@
     "flowers": "Blumen",
     "stars": "Sterne",
     "trees": "Bäume",
-
     "Gallery": "Galerie",
     "Timeline": "Zeitleiste",
     "Tributes & Memories": "Würdigungen & Erinnerungen",
@@ -190,7 +185,6 @@
     "Photo of :name": "Foto von :name",
     "Memorial photo": "Gedenkfoto",
     "Back to GraveSpace": "Zurück zu GraveSpace",
-
     "This Memorial is Private": "Diese Gedenkseite ist privat",
     "This memorial is password protected.": "Diese Gedenkseite ist passwortgeschützt.",
     "Please enter the password to view this memorial page.": "Bitte geben Sie das Passwort ein, um diese Gedenkseite anzuzeigen.",
@@ -200,9 +194,7 @@
     "Enter memorial password": "Gedenkseiten-Passwort eingeben",
     "Confirm": "Bestätigen",
     "View Memorial": "Gedenkseite ansehen",
-
     "Leave a virtual gift": "Virtuelles Geschenk hinterlassen",
-
     "Welcome back, :name": "Willkommen zurück, :name",
     "Manage your memorials and keep memories alive.": "Verwalten Sie Ihre Gedenkseiten und halten Sie Erinnerungen lebendig.",
     "Total Memorials": "Gedenkseiten gesamt",
@@ -223,7 +215,6 @@
     "You have not created any memorials yet.": "Sie haben noch keine Gedenkseiten erstellt.",
     "Create your first memorial to honor and preserve the memory of a loved one.": "Erstellen Sie Ihre erste Gedenkseite, um die Erinnerung an einen geliebten Menschen zu ehren und zu bewahren.",
     "Create Your First Memorial": "Erste Gedenkseite erstellen",
-
     "My Memorials": "Meine Gedenkseiten",
     "Manage and organize all your memorials.": "Verwalten und organisieren Sie alle Ihre Gedenkseiten.",
     "Create New Memorial": "Neue Gedenkseite erstellen",
@@ -234,7 +225,6 @@
     "Delete": "Löschen",
     "Are you sure you want to delete this memorial? This action cannot be undone.": "Sind Sie sicher, dass Sie diese Gedenkseite löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
     ":count photos": ":count Fotos",
-
     "Back to Memorials": "Zurück zu Gedenkseiten",
     "Please correct the following errors:": "Bitte korrigieren Sie die folgenden Fehler:",
     "Personal Information": "Persönliche Informationen",
@@ -274,7 +264,6 @@
     "e.g., -74.0060": "z. B. -74,0060",
     "Cancel": "Abbrechen",
     "Save": "Speichern",
-
     "Edit Memorial": "Gedenkseite bearbeiten",
     "Current cover photo": "Aktuelles Titelbild",
     "Upload a new image to replace the current one.": "Laden Sie ein neues Bild hoch, um das aktuelle zu ersetzen.",
@@ -307,7 +296,6 @@
     "Save Changes": "Änderungen speichern",
     "Current": "Aktuell",
     "Memorial": "Gedenkseite",
-
     "Billing & Subscription": "Abrechnung & Abonnement",
     "Manage your plan and subscription details.": "Verwalten Sie Ihren Tarif und Ihre Abonnementdetails.",
     "Lifetime Premium": "Lebenslanges Premium",
@@ -318,7 +306,6 @@
     "1": "1",
     "10": "10",
     "forever": "für immer",
-
     "Add Timeline Event": "Zeitleisten-Ereignis hinzufügen",
     "Edit Event": "Ereignis bearbeiten",
     "Title": "Titel",
@@ -328,12 +315,9 @@
     "Add Event": "Ereignis hinzufügen",
     "Delete this event?": "Dieses Ereignis löschen?",
     "Life events and milestones will appear here once they are added to the memorial.": "Lebensereignisse und Meilensteine werden hier angezeigt, sobald sie zur Gedenkseite hinzugefügt wurden.",
-
     "No photos have been added yet.": "Es wurden noch keine Fotos hinzugefügt.",
-
     "Clear search": "Suche zurücksetzen",
     "No memorials found.": "Keine Gedenkseiten gefunden.",
-
     "Welcome Back": "Willkommen zurück",
     "Email": "E-Mail",
     "Remember me": "Angemeldet bleiben",
@@ -359,7 +343,6 @@
     "Resend Verification Email": "Bestätigungsmail erneut senden",
     "This is a secure area of the application. Please confirm your password before continuing.": "Dies ist ein geschützter Bereich der Anwendung. Bitte bestätigen Sie Ihr Passwort, bevor Sie fortfahren.",
     "Saved.": "Gespeichert.",
-
     "Profile Information": "Profilinformationen",
     "Update your account's profile information and email address.": "Aktualisieren Sie die Profilinformationen und E-Mail-Adresse Ihres Kontos.",
     "Your email address is unverified.": "Ihre E-Mail-Adresse ist nicht verifiziert.",
@@ -371,20 +354,16 @@
     "Are you sure you want to delete your account?": "Sind Sie sicher, dass Sie Ihr Konto löschen möchten?",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Sobald Ihr Konto gelöscht wird, werden alle zugehörigen Ressourcen und Daten dauerhaft gelöscht. Bitte geben Sie Ihr Passwort ein, um zu bestätigen, dass Sie Ihr Konto dauerhaft löschen möchten.",
     "Enter a new password (leave empty to keep current)": "Neues Passwort eingeben (leer lassen, um das aktuelle beizubehalten)",
-
     "A premium virtual memorial platform. Create beautiful, lasting tributes for the people who shaped your life.": "Eine erstklassige virtuelle Gedenkplattform. Erstellen Sie wunderschöne, dauerhafte Würdigungen für die Menschen, die Ihr Leben geprägt haben.",
     "Platform": "Plattform",
     "Account": "Konto",
     "All rights reserved.": "Alle Rechte vorbehalten.",
     "Create a memorial on GraveSpace": "Gedenkseite auf GraveSpace erstellen",
-
     "Language": "Sprache",
-
     "Moderation": "Moderation",
     "Review and manage pending tributes across all your memorials.": "Überprüfen und verwalten Sie ausstehende Würdigungen in allen Ihren Gedenkseiten.",
     "All": "Alle",
     "No pending tributes. All caught up!": "Keine ausstehenden Würdigungen. Alles erledigt!",
-
     "Reminders": "Erinnerungen",
     "Add Reminder": "Erinnerung hinzufügen",
     "Disable": "Deaktivieren",
@@ -401,7 +380,6 @@
     "Death Anniversary": "Todestag",
     "Custom (yearly)": "Benutzerdefiniert (jährlich)",
     "You already have a reminder of this type for this memorial.": "Sie haben bereits eine Erinnerung dieses Typs für diese Gedenkseite.",
-
     "Family Connections": "Familienverbindungen",
     "Add Connection": "Verbindung hinzufügen",
     "No family connections yet. Link related memorials together.": "Noch keine Familienverbindungen. Verknüpfen Sie verwandte Gedenkseiten.",
@@ -422,7 +400,6 @@
     "Nephew": "Neffe",
     "Cannot link a memorial to itself.": "Eine Gedenkseite kann nicht mit sich selbst verknüpft werden.",
     "This connection already exists.": "Diese Verbindung existiert bereits.",
-
     "Managers & Invitations": "Verwalter & Einladungen",
     "Invite": "Einladen",
     "Current Managers": "Aktuelle Verwalter",
@@ -440,7 +417,6 @@
     "An invitation has already been sent to this email.": "An diese E-Mail-Adresse wurde bereits eine Einladung gesendet.",
     "This invitation has expired.": "Diese Einladung ist abgelaufen.",
     "Invitation accepted. You now have :role access to this memorial.": "Einladung angenommen. Sie haben jetzt :role-Zugang zu dieser Gedenkseite.",
-
     "Video uploads require a Premium subscription.": "Für Video-Uploads ist ein Premium-Abonnement erforderlich.",
     "Video uploaded successfully. Processing will complete shortly.": "Video erfolgreich hochgeladen. Die Verarbeitung wird in Kürze abgeschlossen.",
     "Video updated.": "Video aktualisiert.",

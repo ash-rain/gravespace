@@ -11,7 +11,6 @@
     "Pricing": "Tarifs",
     "About": "À propos",
     "Create Account": "Créer un compte",
-
     "Honor Those": "Honorez ceux",
     "Who Matter": "Qui comptent",
     "Every Life Deserves": "Chaque vie mérite",
@@ -46,7 +45,6 @@
     "Tell Their Story": "Racontez leur histoire",
     "Add photos, write an obituary, create a timeline of their life milestones.": "Ajoutez des photos, rédigez une nécrologie, créez une chronologie des moments marquants de leur vie.",
     "Honoring Lives": "Honorer des vies",
-
     "Simple, Honest": "Simple et honnête",
     "Start for free. Upgrade when you need more. No hidden fees, no surprises.": "Commencez gratuitement. Passez à un forfait supérieur quand vous en avez besoin. Pas de frais cachés, pas de surprises.",
     "Starter": "Découverte",
@@ -108,7 +106,6 @@
     "Advanced analytics": "Analyses avancées",
     "Monthly": "Mensuel",
     "Best Value": "Meilleur rapport qualité-prix",
-
     "Preserving Memories,": "Préserver les souvenirs,",
     "Learn about GraveSpace and our mission to preserve the memory of loved ones through beautiful, lasting digital memorials.": "Découvrez GraveSpace et notre mission de préserver la mémoire des êtres chers grâce à de beaux mémoriaux numériques durables.",
     "Our Mission": "Notre mission",
@@ -129,7 +126,6 @@
     "Honor Someone You Love": "Honorez quelqu'un que vous aimez",
     "Sign up for free and start building your memorial page in minutes.": "Inscrivez-vous gratuitement et commencez à créer votre page commémorative en quelques minutes.",
     "Create an Account": "Créer un compte",
-
     "Browse public memorials and pay your respects to those who have passed.": "Parcourez les mémoriaux publics et rendez hommage à ceux qui nous ont quittés.",
     "Search by name...": "Rechercher par nom...",
     "Search memorials...": "Rechercher des mémoriaux...",
@@ -142,7 +138,6 @@
     "flowers": "fleurs",
     "stars": "étoiles",
     "trees": "arbres",
-
     "Gallery": "Galerie",
     "Timeline": "Chronologie",
     "Tributes & Memories": "Hommages et souvenirs",
@@ -190,7 +185,6 @@
     "Photo of :name": "Photo de :name",
     "Memorial photo": "Photo commémorative",
     "Back to GraveSpace": "Retour à GraveSpace",
-
     "This Memorial is Private": "Ce mémorial est privé",
     "This memorial is password protected.": "Ce mémorial est protégé par un mot de passe.",
     "Please enter the password to view this memorial page.": "Veuillez entrer le mot de passe pour consulter cette page commémorative.",
@@ -200,9 +194,7 @@
     "Enter memorial password": "Entrez le mot de passe du mémorial",
     "Confirm": "Confirmer",
     "View Memorial": "Voir le mémorial",
-
     "Leave a virtual gift": "Laisser un cadeau virtuel",
-
     "Welcome back, :name": "Bon retour, :name",
     "Manage your memorials and keep memories alive.": "Gérez vos mémoriaux et gardez les souvenirs vivants.",
     "Total Memorials": "Total des mémoriaux",
@@ -223,7 +215,6 @@
     "You have not created any memorials yet.": "Vous n'avez pas encore créé de mémorial.",
     "Create your first memorial to honor and preserve the memory of a loved one.": "Créez votre premier mémorial pour honorer et préserver la mémoire d'un être cher.",
     "Create Your First Memorial": "Créez votre premier mémorial",
-
     "My Memorials": "Mes mémoriaux",
     "Manage and organize all your memorials.": "Gérez et organisez tous vos mémoriaux.",
     "Create New Memorial": "Créer un nouveau mémorial",
@@ -234,7 +225,6 @@
     "Delete": "Supprimer",
     "Are you sure you want to delete this memorial? This action cannot be undone.": "Êtes-vous sûr de vouloir supprimer ce mémorial ? Cette action est irréversible.",
     ":count photos": ":count photos",
-
     "Back to Memorials": "Retour aux mémoriaux",
     "Please correct the following errors:": "Veuillez corriger les erreurs suivantes :",
     "Personal Information": "Informations personnelles",
@@ -274,7 +264,6 @@
     "e.g., -74.0060": "ex. : -74.0060",
     "Cancel": "Annuler",
     "Save": "Enregistrer",
-
     "Edit Memorial": "Modifier le mémorial",
     "Current cover photo": "Photo de couverture actuelle",
     "Upload a new image to replace the current one.": "Téléversez une nouvelle image pour remplacer l'actuelle.",
@@ -307,7 +296,6 @@
     "Save Changes": "Enregistrer les modifications",
     "Current": "Actuel",
     "Memorial": "Mémorial",
-
     "Billing & Subscription": "Facturation et abonnement",
     "Manage your plan and subscription details.": "Gérez votre forfait et les détails de votre abonnement.",
     "Lifetime Premium": "Premium à vie",
@@ -318,7 +306,6 @@
     "1": "1",
     "10": "10",
     "forever": "pour toujours",
-
     "Add Timeline Event": "Ajouter un événement",
     "Edit Event": "Modifier l'événement",
     "Title": "Titre",
@@ -328,12 +315,9 @@
     "Add Event": "Ajouter l'événement",
     "Delete this event?": "Supprimer cet événement ?",
     "Life events and milestones will appear here once they are added to the memorial.": "Les événements de vie et les moments marquants apparaîtront ici une fois ajoutés au mémorial.",
-
     "No photos have been added yet.": "Aucune photo n'a encore été ajoutée.",
-
     "Clear search": "Effacer la recherche",
     "No memorials found.": "Aucun mémorial trouvé.",
-
     "Welcome Back": "Bon retour",
     "Email": "E-mail",
     "Remember me": "Se souvenir de moi",
@@ -359,7 +343,6 @@
     "Resend Verification Email": "Renvoyer l'e-mail de vérification",
     "This is a secure area of the application. Please confirm your password before continuing.": "Ceci est une zone sécurisée de l'application. Veuillez confirmer votre mot de passe avant de continuer.",
     "Saved.": "Enregistré.",
-
     "Profile Information": "Informations du profil",
     "Update your account's profile information and email address.": "Mettez à jour les informations de votre profil et votre adresse e-mail.",
     "Your email address is unverified.": "Votre adresse e-mail n'est pas vérifiée.",
@@ -371,20 +354,16 @@
     "Are you sure you want to delete your account?": "Êtes-vous sûr de vouloir supprimer votre compte ?",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.": "Une fois votre compte supprimé, toutes ses ressources et données seront définitivement supprimées. Veuillez entrer votre mot de passe pour confirmer que vous souhaitez supprimer définitivement votre compte.",
     "Enter a new password (leave empty to keep current)": "Entrez un nouveau mot de passe (laissez vide pour conserver l'actuel)",
-
     "A premium virtual memorial platform. Create beautiful, lasting tributes for the people who shaped your life.": "Une plateforme commémorative virtuelle premium. Créez de beaux hommages durables pour les personnes qui ont marqué votre vie.",
     "Platform": "Plateforme",
     "Account": "Compte",
     "All rights reserved.": "Tous droits réservés.",
     "Create a memorial on GraveSpace": "Créer un mémorial sur GraveSpace",
-
     "Language": "Langue",
-
     "Moderation": "Modération",
     "Review and manage pending tributes across all your memorials.": "Examinez et gérez les hommages en attente sur tous vos mémoriaux.",
     "All": "Tous",
     "No pending tributes. All caught up!": "Aucun hommage en attente. Tout est à jour !",
-
     "Reminders": "Rappels",
     "Add Reminder": "Ajouter un rappel",
     "Disable": "Désactiver",
@@ -401,7 +380,6 @@
     "Death Anniversary": "Anniversaire de décès",
     "Custom (yearly)": "Personnalisé (annuel)",
     "You already have a reminder of this type for this memorial.": "Vous avez déjà un rappel de ce type pour ce mémorial.",
-
     "Family Connections": "Liens familiaux",
     "Add Connection": "Ajouter un lien",
     "No family connections yet. Link related memorials together.": "Aucun lien familial. Reliez les mémoriaux entre eux.",
@@ -422,7 +400,6 @@
     "Nephew": "Neveu",
     "Cannot link a memorial to itself.": "Impossible de lier un mémorial à lui-même.",
     "This connection already exists.": "Ce lien existe déjà.",
-
     "Managers & Invitations": "Gestionnaires et invitations",
     "Invite": "Inviter",
     "Current Managers": "Gestionnaires actuels",
@@ -440,7 +417,6 @@
     "An invitation has already been sent to this email.": "Une invitation a déjà été envoyée à cette adresse e-mail.",
     "This invitation has expired.": "Cette invitation a expiré.",
     "Invitation accepted. You now have :role access to this memorial.": "Invitation acceptée. Vous avez maintenant un accès :role à ce mémorial.",
-
     "Video uploads require a Premium subscription.": "Le téléversement de vidéos nécessite un abonnement Premium.",
     "Video uploaded successfully. Processing will complete shortly.": "Vidéo téléversée avec succès. Le traitement sera terminé sous peu.",
     "Video updated.": "Vidéo mise à jour.",
