@@ -115,7 +115,7 @@
                     <div>
                         <h2 class="font-serif text-2xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">{{ __('Virtual Gifts Received') }}</h2>
                         <div class="flex flex-wrap gap-6">
-                            @foreach (['candle' => '🕯️', 'flower' => '🌹', 'tree' => '🌳', 'wreath' => '🫷', 'star' => '⭐'] as $type => $emoji)
+                            @foreach (['candle' => '🕯️', 'flower' => '🌹', 'tree' => '🌳', 'wreath' => "\u{1FAB7}", 'star' => '⭐'] as $type => $emoji)
                                 @if ($giftCounts->get($type, 0) > 0)
                                     <div class="flex items-center gap-2 text-gray-600">
                                         <span class="text-xl">{{ $emoji }}</span>
