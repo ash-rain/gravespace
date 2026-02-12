@@ -54,6 +54,9 @@
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                                 </button>
                                 <div x-show="open" @click.away="open = false" x-transition class="absolute right-0 mt-2 w-48 bg-elevated border border-border rounded-lg shadow-xl z-50">
+                                    @if (Auth::user()->isAdmin())
+                                        <a href="{{ url('/admin') }}" class="block px-4 py-2 text-sm text-accent hover:text-accent-hover hover:bg-surface">{{ __('Admin Panel') }}</a>
+                                    @endif
                                     <a href="{{ route('dashboard.profile.edit') }}" class="block px-4 py-2 text-sm text-text-muted hover:text-text hover:bg-surface">{{ __('Profile') }}</a>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -82,6 +85,9 @@
                         <a href="{{ route('dashboard.memorials.index') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Memorials') }}</a>
                         <a href="{{ route('dashboard.billing') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Billing') }}</a>
                         <a href="{{ route('dashboard.profile.edit') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Profile') }}</a>
+                        @if (Auth::user()->isAdmin())
+                            <a href="{{ url('/admin') }}" class="block text-sm text-accent hover:text-accent-hover">{{ __('Admin Panel') }}</a>
+                        @endif
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="block text-sm text-text-muted hover:text-text">{{ __('Log Out') }}</button>
