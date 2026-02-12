@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
         $admin = User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@gravespace.com',
-            'password' => 'password',
+            'password' => bcrypt('password'),
             'is_admin' => true,
         ]);
 
