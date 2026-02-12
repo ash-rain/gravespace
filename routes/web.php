@@ -16,6 +16,7 @@ use App\Http\Controllers\VirtualGiftController;
 use App\Http\Controllers\VoiceMemoryController;
 use App\Http\Controllers\Webhook\StripeWebhookController;
 use App\Http\Middleware\HoneypotProtection;
+use App\Models\Memorial;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,27 @@ Route::get('/sitemap.xml', function () {
 })->name('sitemap');
 
 // Public pages
-Route::get('/', fn () => view('pages.home'))->name('home');
-Route::get('/pricing', fn () => view('pages.pricing'))->name('pricing');
-Route::get('/about', fn () => view('pages.about'))->name('about');
+Route::get('/', function () {
+    $today = now();
+
+    $bornToday = Memorial::query()
+        ->where('is_published', true)
+        ->where('privacy', 'public')
+        ->whereMonth('date_of_birth', $today->month)
+        ->whereDay('date_of_birth', $today->day)
+        ->first();
+
+    $diedToday = Memorial::query()
+        ->where('is_published', true)
+        ->where('privacy', 'public')
+        ->whereMonth('date_of_death', $today->month)
+        ->whereDay('date_of_death', $today->day)
+        ->first();
+
+    return view('pages.home', compact('bornToday', 'diedToday'));
+})->name('home');
+Route::get('/pricing', fn() => view('pages.pricing'))->name('pricing');
+Route::get('/about', fn() => view('pages.about'))->name('about');
 Route::get('/explore', [ExploreController::class, 'index'])->name('explore');
 
 // QR code redirect
@@ -91,7 +110,7 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
 Route::get('/invitation/{token}/accept', [InvitationController::class, 'accept'])->middleware(['auth', 'verified'])->name('invitation.accept');
 
 // Auth routes (must be before the slug catch-all)
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Public memorial routes (must be last — slug catch-all)
 Route::get('/{memorial:slug}', [MemorialController::class, 'show'])->name('memorial.show')->middleware(\App\Http\Middleware\TrackMemorialVisit::class);

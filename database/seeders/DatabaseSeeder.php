@@ -72,5 +72,35 @@ class DatabaseSeeder extends Seeder
             'memorial_id' => $memorial->id,
             'type' => 'candle',
         ]);
+
+        // Person born on February 12
+        Memorial::create([
+            'user_id' => $user->id,
+            'slug' => 'elena-petrova',
+            'first_name' => 'Elena',
+            'last_name' => 'Petrova',
+            'date_of_birth' => '1938-02-12',
+            'date_of_death' => '2021-09-03',
+            'place_of_birth' => 'Sofia, Bulgaria',
+            'place_of_death' => 'Plovdiv, Bulgaria',
+            'obituary' => 'Elena Petrova was a beloved teacher and poet who inspired generations of students with her passion for literature and the arts. Born on this day in 1938, she dedicated her life to nurturing young minds and preserving cultural heritage. Her warmth and wisdom touched everyone she met.',
+            'privacy' => 'public',
+            'is_published' => true,
+        ]);
+
+        // Person who died on February 12
+        Memorial::create([
+            'user_id' => $user->id,
+            'slug' => 'marcus-wright',
+            'first_name' => 'Marcus',
+            'last_name' => 'Wright',
+            'date_of_birth' => '1952-06-28',
+            'date_of_death' => '2023-02-12',
+            'place_of_birth' => 'Chicago, IL',
+            'place_of_death' => 'Denver, CO',
+            'obituary' => 'Marcus Wright was a devoted community leader, loving husband, and proud grandfather. A veteran and lifelong advocate for education, Marcus spent decades mentoring young people and building bridges across communities. He passed away on this day in 2023, leaving behind a legacy of service and compassion.',
+            'privacy' => 'public',
+            'is_published' => true,
+        ]);
     }
 }
