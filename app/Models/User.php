@@ -88,4 +88,19 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->isPremium() ? PHP_INT_MAX : 5;
     }
+
+    public function canUploadVoiceMemory(): bool
+    {
+        return $this->isPremium();
+    }
+
+    public function canSelectTheme(): bool
+    {
+        return $this->isPremium();
+    }
+
+    public function canExportMemorial(): bool
+    {
+        return $this->isPremium();
+    }
 }

@@ -113,6 +113,18 @@
                         </li>
                         <li class="flex items-start gap-3 text-sm text-text">
                             <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            {{ __('Voice memories & audio tributes') }}
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-text">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            {{ __('Beautiful memorial themes') }}
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-text">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                            {{ __('Export memorial as PDF keepsake') }}
+                        </li>
+                        <li class="flex items-start gap-3 text-sm text-text">
+                            <svg class="w-5 h-5 text-accent shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
                             {{ __('Priority support') }}
                         </li>
                     </ul>

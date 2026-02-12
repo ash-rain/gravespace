@@ -272,6 +272,44 @@
                 </div>
             </div>
 
+            {{-- Memorial Theme (Premium) --}}
+            <div class="bg-surface border border-border rounded-xl p-6 sm:p-8">
+                <h2 class="font-serif text-xl font-semibold text-text mb-2">
+                    {{ __('Memorial Theme') }}
+                    @if (!Auth::user()->isPremium())
+                        <span class="inline-flex items-center ml-2 px-2 py-0.5 bg-accent/10 text-accent text-xs rounded-lg">{{ __('Premium') }}</span>
+                    @endif
+                </h2>
+                <p class="text-text-muted text-sm mb-6">{{ __('Choose a visual theme for your memorial page.') }}</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" x-data="{ theme: '{{ old('theme', $memorial->theme ?? 'classic') }}' }">
+                    @foreach (\App\Models\Memorial::availableThemes() as $key => $themeInfo)
+                        <label
+                            class="relative flex flex-col items-center gap-2 p-4 bg-elevated border border-border rounded-xl cursor-pointer hover:border-accent/30 transition-colors {{ !Auth::user()->isPremium() && $key !== 'classic' ? 'opacity-50 cursor-not-allowed' : '' }}"
+                            :class="{ 'border-accent/50 bg-accent/5': theme === '{{ $key }}' }">
+                            <input type="radio" name="theme" value="{{ $key }}" x-model="theme"
+                                {{ !Auth::user()->isPremium() && $key !== 'classic' ? 'disabled' : '' }}
+                                class="sr-only">
+                            <span class="text-2xl">{{ $themeInfo['icon'] }}</span>
+                            <span class="text-text font-medium text-sm">{{ __($themeInfo['name']) }}</span>
+                            <span class="text-text-muted text-xs text-center">{{ __($themeInfo['description']) }}</span>
+                            <div x-show="theme === '{{ $key }}'" class="absolute top-2 right-2">
+                                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </label>
+                    @endforeach
+                </div>
+
+                @if (!Auth::user()->isPremium())
+                    <p class="mt-4 text-xs text-text-muted">{{ __('Upgrade to Premium to unlock all memorial themes.') }}</p>
+                @endif
+                @error('theme')
+                    <p class="mt-2 text-sm text-red-400">{{ $message }}</p>
+                @enderror
+            </div>
+
             {{-- Location --}}
             <div class="bg-surface border border-border rounded-xl p-6 sm:p-8">
                 <h2 class="font-serif text-xl font-semibold text-text mb-6">{{ __('Cemetery / Resting Place') }}</h2>
@@ -396,6 +434,62 @@
                                         d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z" />
                                 </svg>
                                 {{ __('Generate QR Code') }}
+                            </a>
+                        @else
+                            <a href="{{ route('dashboard.billing') }}"
+                                class="inline-flex items-center gap-2 px-4 py-2.5 bg-elevated border border-border text-text-muted text-sm font-medium rounded-xl opacity-60 hover:opacity-100 transition-opacity">
+                                {{ __('Upgrade') }}
+                            </a>
+                        @endif
+                    </div>
+
+                    {{-- Voice Memories (Premium Only) --}}
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-text font-medium text-sm">
+                                {{ __('Voice Memories') }}
+                                @if (!Auth::user()->isPremium())
+                                    <span class="inline-flex items-center ml-2 px-2 py-0.5 bg-accent/10 text-accent text-xs rounded-lg">{{ __('Premium') }}</span>
+                                @endif
+                            </p>
+                            <p class="text-text-muted text-xs mt-1">
+                                {{ __('Upload audio recordings — voicemails, messages, or favorite songs.') }}</p>
+                        </div>
+                        @if (Auth::user()->isPremium())
+                            <a href="{{ route('dashboard.memorials.voice-memories.index', $memorial) }}"
+                                class="inline-flex items-center gap-2 px-4 py-2.5 bg-elevated border border-border text-text-muted text-sm font-medium rounded-xl hover:text-accent hover:border-accent/30 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                </svg>
+                                {{ __('Manage Voice Memories') }}
+                            </a>
+                        @else
+                            <a href="{{ route('dashboard.billing') }}"
+                                class="inline-flex items-center gap-2 px-4 py-2.5 bg-elevated border border-border text-text-muted text-sm font-medium rounded-xl opacity-60 hover:opacity-100 transition-opacity">
+                                {{ __('Upgrade') }}
+                            </a>
+                        @endif
+                    </div>
+
+                    {{-- Export Memorial (Premium Only) --}}
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-text font-medium text-sm">
+                                {{ __('Export Memorial') }}
+                                @if (!Auth::user()->isPremium())
+                                    <span class="inline-flex items-center ml-2 px-2 py-0.5 bg-accent/10 text-accent text-xs rounded-lg">{{ __('Premium') }}</span>
+                                @endif
+                            </p>
+                            <p class="text-text-muted text-xs mt-1">
+                                {{ __('Print or save as PDF — a beautiful keepsake to share offline.') }}</p>
+                        </div>
+                        @if (Auth::user()->isPremium())
+                            <a href="{{ route('dashboard.memorials.export', $memorial) }}"
+                                class="inline-flex items-center gap-2 px-4 py-2.5 bg-elevated border border-border text-text-muted text-sm font-medium rounded-xl hover:text-accent hover:border-accent/30 transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                                {{ __('Export as PDF') }}
                             </a>
                         @else
                             <a href="{{ route('dashboard.billing') }}"
