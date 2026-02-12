@@ -32,6 +32,9 @@
                                 <a href="{{ route('dashboard.memorials.index') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('dashboard.memorials.*') ? 'text-accent border-b-2 border-accent' : 'text-text-muted hover:text-text' }}">
                                     {{ __('Memorials') }}
                                 </a>
+                                <a href="{{ route('dashboard.moderation') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('dashboard.moderation') ? 'text-accent border-b-2 border-accent' : 'text-text-muted hover:text-text' }}">
+                                    {{ __('Moderation') }}
+                                </a>
                                 <a href="{{ route('dashboard.billing') }}" class="inline-flex items-center px-1 pt-1 text-sm font-medium {{ request()->routeIs('dashboard.billing*') ? 'text-accent border-b-2 border-accent' : 'text-text-muted hover:text-text' }}">
                                     {{ __('Billing') }}
                                 </a>
@@ -72,6 +75,7 @@
                     <div class="px-4 py-3 space-y-2">
                         <a href="{{ route('dashboard.index') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Dashboard') }}</a>
                         <a href="{{ route('dashboard.memorials.index') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Memorials') }}</a>
+                        <a href="{{ route('dashboard.moderation') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Moderation') }}</a>
                         <a href="{{ route('dashboard.billing') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Billing') }}</a>
                         <a href="{{ route('dashboard.profile.edit') }}" class="block text-sm text-text-muted hover:text-text">{{ __('Profile') }}</a>
                         <form method="POST" action="{{ route('logout') }}">

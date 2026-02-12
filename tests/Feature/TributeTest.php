@@ -172,7 +172,7 @@ class TributeTest extends TestCase
         $response = $this->actingAs($user)->delete("/dashboard/tributes/{$tribute->id}");
 
         $response->assertRedirect();
-        $this->assertDatabaseMissing('tributes', ['id' => $tribute->id]);
+        $this->assertSoftDeleted('tributes', ['id' => $tribute->id]);
     }
 
     public function test_non_owner_cannot_delete_tribute(): void
@@ -200,7 +200,7 @@ class TributeTest extends TestCase
         $response = $this->actingAs($tributeAuthor)->delete("/dashboard/tributes/{$tribute->id}");
 
         $response->assertRedirect();
-        $this->assertDatabaseMissing('tributes', ['id' => $tribute->id]);
+        $this->assertSoftDeleted('tributes', ['id' => $tribute->id]);
     }
 
     public function test_guest_cannot_delete_tribute(): void

@@ -30,6 +30,6 @@ class FamilyLink extends Model
 
     public function relationshipLabel(): string
     {
-        return ucfirst($this->relationship);
+        return __(ucfirst($this->relationship));
     }
 }

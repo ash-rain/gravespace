@@ -475,6 +475,21 @@
             </form>
         </div>
 
+        {{-- Reminders --}}
+        <div class="mt-8 bg-surface border border-border rounded-xl p-6 sm:p-8">
+            <livewire:reminder-manager :memorial="$memorial" />
+        </div>
+
+        {{-- Family Connections --}}
+        <div class="mt-8 bg-surface border border-border rounded-xl p-6 sm:p-8">
+            <livewire:family-tree-editor :memorial="$memorial" />
+        </div>
+
+        {{-- Managers & Invitations --}}
+        <div class="mt-8 bg-surface border border-border rounded-xl p-6 sm:p-8">
+            <livewire:invitation-manager :memorial="$memorial" />
+        </div>
+
         {{-- Tributes Management --}}
         <div class="mt-8 bg-surface border border-border rounded-xl p-6 sm:p-8">
             <h2 class="font-serif text-xl font-semibold text-text mb-6">{{ __('Tributes') }}</h2>

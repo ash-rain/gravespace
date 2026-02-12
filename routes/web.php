@@ -3,13 +3,15 @@
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExploreController;
+use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\MemorialController;
 use App\Http\Controllers\PhotoController;
-use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\TributeController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\VirtualGiftController;
-use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Webhook\StripeWebhookController;
 use App\Http\Middleware\HoneypotProtection;
 use Illuminate\Support\Facades\Artisan;
@@ -21,9 +23,10 @@ Route::get('/language/{locale}', [LanguageController::class, 'switch'])->name('l
 // Sitemap
 Route::get('/sitemap.xml', function () {
     $path = public_path('sitemap.xml');
-    if (!file_exists($path)) {
+    if (! file_exists($path)) {
         Artisan::call('sitemap:generate');
     }
+
     return response()->file($path, ['Content-Type' => 'application/xml']);
 })->name('sitemap');
 
@@ -45,12 +48,22 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
 
     // Memorials
     Route::resource('memorials', MemorialController::class)->except(['show']);
-    Route::get('memorials/{memorial}/qr', [QrCodeController::class, 'show'])->name('memorials.qr');
-    Route::get('memorials/{memorial}/qr/download', [QrCodeController::class, 'download'])->name('memorials.qr.download');
-    Route::get('memorials/{memorial}/analytics', [DashboardController::class, 'analytics'])->name('memorials.analytics');
+    Route::middleware('subscribed')->group(function () {
+        Route::get('memorials/{memorial}/qr', [QrCodeController::class, 'show'])->name('memorials.qr');
+        Route::get('memorials/{memorial}/qr/download', [QrCodeController::class, 'download'])->name('memorials.qr.download');
+        Route::get('memorials/{memorial}/analytics', [DashboardController::class, 'analytics'])->name('memorials.analytics');
+    });
     Route::post('memorials/{memorial}/photos', [PhotoController::class, 'store'])->name('memorials.photos.store');
     Route::patch('photos/{photo}', [PhotoController::class, 'update'])->name('photos.update');
     Route::delete('photos/{photo}', [PhotoController::class, 'destroy'])->name('photos.destroy');
+
+    // Videos
+    Route::post('memorials/{memorial}/videos', [VideoController::class, 'store'])->name('memorials.videos.store');
+    Route::patch('videos/{video}', [VideoController::class, 'update'])->name('videos.update');
+    Route::delete('videos/{video}', [VideoController::class, 'destroy'])->name('videos.destroy');
+
+    // Moderation
+    Route::get('moderation', [DashboardController::class, 'moderation'])->name('moderation');
 
     // Tributes management
     Route::post('tributes/{tribute}/approve', [TributeController::class, 'approve'])->name('tributes.approve');
@@ -67,6 +80,9 @@ Route::middleware(['auth', 'verified'])->prefix('dashboard')->name('dashboard.')
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+// Invitation acceptance
+Route::get('/invitation/{token}/accept', [InvitationController::class, 'accept'])->middleware(['auth', 'verified'])->name('invitation.accept');
 
 // Auth routes (must be before the slug catch-all)
 require __DIR__.'/auth.php';

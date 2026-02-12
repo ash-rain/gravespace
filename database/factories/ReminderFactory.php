@@ -18,8 +18,8 @@ class ReminderFactory extends Factory
 
     private static array $reminderTypes = [
         'birthday',
+        'anniversary',
         'death_anniversary',
-        'custom',
     ];
 
     /**
@@ -101,12 +101,12 @@ class ReminderFactory extends Factory
     }
 
     /**
-     * Indicate that the reminder is a custom type.
+     * Indicate that the reminder is an anniversary type.
      */
-    public function custom(): static
+    public function anniversary(): static
     {
         return $this->state(fn (array $attributes) => [
-            'type' => 'custom',
+            'type' => 'anniversary',
         ]);
     }
 }

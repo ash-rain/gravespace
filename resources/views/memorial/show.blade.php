@@ -200,6 +200,11 @@
             </section>
         @endif
 
+        {{-- Family Connections --}}
+        @if ($memorial->familyLinks && $memorial->familyLinks->count() > 0)
+            <x-memorial.family-links :familyLinks="$memorial->familyLinks" />
+        @endif
+
         {{-- Leave a Virtual Gift --}}
         <section class="py-10 sm:py-14" x-data="{ selectedGift: 'candle', message: '', submitted: false }">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -374,6 +379,12 @@
                                 @endif
                             </div>
                         </div>
+
+                        <x-memorial.map
+                            :latitude="$memorial->latitude"
+                            :longitude="$memorial->longitude"
+                            :name="$memorial->cemetery_name ?? $memorial->fullName()"
+                        />
                     </div>
                 </div>
             </section>

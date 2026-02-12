@@ -17,9 +17,11 @@ class TrackMemorialVisit
         $response = $next($request);
 
         // Track the visit after sending the response
-        if ($request->route('memorial') || $request->route('slug')) {
-            $slug = $request->route('memorial')?->slug ?? $request->route('slug');
-            $memorial = Memorial::where('slug', $slug)->first();
+        $param = $request->route('memorial') ?? $request->route('slug');
+        if ($param) {
+            $memorial = $param instanceof Memorial
+                ? $param
+                : Memorial::where('slug', $param)->first();
 
             if ($memorial) {
                 MemorialVisit::create([

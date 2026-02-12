@@ -181,7 +181,7 @@ class MemorialTest extends TestCase
         $response = $this->actingAs($user)->delete("/dashboard/memorials/{$memorial->slug}");
 
         $response->assertRedirect();
-        $this->assertDatabaseMissing('memorials', ['id' => $memorial->id]);
+        $this->assertSoftDeleted('memorials', ['id' => $memorial->id]);
     }
 
     public function test_user_cannot_delete_others_memorial(): void

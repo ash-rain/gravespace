@@ -73,7 +73,7 @@
             </div>
 
             {{-- Pending Tributes --}}
-            <div class="bg-surface border border-border rounded-xl p-6">
+            <a href="{{ route('dashboard.moderation') }}" class="bg-surface border border-border rounded-xl p-6 block hover:border-accent/30 transition-colors">
                 <div class="flex items-center justify-between">
                     <div>
                         <p class="text-text-muted text-sm">{{ __('Pending Tributes') }}</p>
@@ -86,7 +86,7 @@
                         </svg>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
 
         {{-- Quick Actions --}}

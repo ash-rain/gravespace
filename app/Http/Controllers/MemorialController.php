@@ -40,7 +40,7 @@ class MemorialController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = $request->user()->id;
-        $data['slug'] = Str::slug($data['first_name'] . ' ' . $data['last_name'] . ' ' . Str::random(4));
+        $data['slug'] = Str::slug($data['first_name'].' '.$data['last_name'].' '.Str::random(4));
 
         if (isset($data['memorial_password'])) {
             $data['password_hash'] = Hash::make($data['memorial_password']);
@@ -64,7 +64,7 @@ class MemorialController extends Controller
     public function show(string $slug): View
     {
         $memorial = Memorial::where('slug', $slug)
-            ->with(['photos', 'approvedTributes', 'virtualGifts', 'timelineEvents', 'user'])
+            ->with(['photos', 'approvedTributes', 'virtualGifts', 'timelineEvents', 'user', 'familyLinks.relatedMemorial'])
             ->firstOrFail();
 
         return view('memorial.show', compact('memorial'));
@@ -119,18 +119,21 @@ class MemorialController extends Controller
     public function gallery(string $slug): View
     {
         $memorial = Memorial::where('slug', $slug)->with('photos')->firstOrFail();
+
         return view('memorial.gallery', compact('memorial'));
     }
 
     public function timeline(string $slug): View
     {
         $memorial = Memorial::where('slug', $slug)->with('timelineEvents.photo')->firstOrFail();
+
         return view('memorial.timeline', compact('memorial'));
     }
 
     public function password(string $slug): View
     {
         $memorial = Memorial::where('slug', $slug)->firstOrFail();
+
         return view('memorial.password', compact('memorial'));
     }
 
@@ -141,6 +144,7 @@ class MemorialController extends Controller
 
         if (Hash::check($request->password, $memorial->password_hash)) {
             session(["memorial_access.{$memorial->id}" => true]);
+
             return redirect()->route('memorial.show', $slug);
         }
 

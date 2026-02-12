@@ -27,6 +27,27 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function moderation(Request $request): View
+    {
+        $user = $request->user();
+        $memorialIds = $user->memorials()->pluck('id');
+        $memorialFilter = $request->input('memorial_id');
+
+        $query = \App\Models\Tribute::whereIn('memorial_id', $memorialIds)
+            ->pending()
+            ->with(['memorial'])
+            ->latest();
+
+        if ($memorialFilter) {
+            $query->where('memorial_id', $memorialFilter);
+        }
+
+        $pendingTributes = $query->get();
+        $memorials = $user->memorials()->withCount(['tributes' => fn ($q) => $q->pending()])->get();
+
+        return view('dashboard.moderation', compact('pendingTributes', 'memorials', 'memorialFilter'));
+    }
+
     public function analytics(Request $request, Memorial $memorial): View
     {
         $this->authorize('update', $memorial);

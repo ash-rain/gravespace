@@ -18,6 +18,7 @@ class MemorialInvitation extends Notification
         public Memorial $memorial,
         public User $inviter,
         public string $role = 'viewer',
+        public ?string $token = null,
     ) {}
 
     public function via(object $notifiable): array
@@ -27,11 +28,19 @@ class MemorialInvitation extends Notification
 
     public function toMail(object $notifiable): MailMessage
     {
+        $actionUrl = $this->token
+            ? route('invitation.accept', $this->token)
+            : url('/'.$this->memorial->slug);
+
         return (new MailMessage)
-            ->subject('You\'re invited to view a memorial on GraveSpace')
-            ->greeting('Memorial Invitation')
-            ->line('You have been invited to view the memorial for ' . $this->memorial->fullName() . '.')
-            ->action('View Memorial', url('/' . $this->memorial->slug))
-            ->line('This is a private memorial shared with you by the family.');
+            ->subject(__('You\'re invited to manage a memorial on GraveSpace'))
+            ->greeting(__('Memorial Invitation'))
+            ->line(__(':name has invited you to :role the memorial for :memorial.', [
+                'name' => $this->inviter->name,
+                'role' => $this->role,
+                'memorial' => $this->memorial->fullName(),
+            ]))
+            ->action(__('Accept Invitation'), $actionUrl)
+            ->line(__('This invitation expires in 7 days.'));
     }
 }

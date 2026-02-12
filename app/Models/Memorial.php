@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
 
 class Memorial extends Model
 {
-    use HasFactory, Searchable;
+    use HasFactory, Searchable, SoftDeletes;
 
     protected $fillable = [
         'user_id',
@@ -47,6 +49,18 @@ class Memorial extends Model
             'longitude' => 'decimal:7',
             'is_published' => 'boolean',
         ];
+    }
+
+    protected function obituary(): Attribute
+    {
+        return Attribute::make(
+            set: fn (?string $value) => $value !== null ? strip_tags($value) : null,
+        );
+    }
+
+    public function invitations(): HasMany
+    {
+        return $this->hasMany(\App\Models\Invitation::class);
     }
 
     public function getRouteKeyName(): string
@@ -118,10 +132,11 @@ class Memorial extends Model
 
     public function fullName(): string
     {
-        $name = $this->first_name . ' ' . $this->last_name;
+        $name = $this->first_name.' '.$this->last_name;
         if ($this->maiden_name) {
-            $name .= ' (née ' . $this->maiden_name . ')';
+            $name .= ' (née '.$this->maiden_name.')';
         }
+
         return $name;
     }
 
@@ -129,7 +144,8 @@ class Memorial extends Model
     {
         $birth = $this->date_of_birth?->format('M j, Y') ?? '?';
         $death = $this->date_of_death?->format('M j, Y') ?? '?';
-        return $birth . ' — ' . $death;
+
+        return $birth.' — '.$death;
     }
 
     public function isPublic(): bool
